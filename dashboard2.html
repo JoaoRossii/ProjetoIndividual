@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="resto.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <p>Frozen Maet</p>
+        <img src="image-removebg-preview.png" class="logo">
+        <div class="usuario">
+            <span>Olá, usuário</span>
+            <img src="prof.png" alt="">
+
+        </div>
+    </div>
+    <div class="side-bar" id="sidebar">
+        <ul>
+            <li class="meni"><i class='bx bx-menu menu' id="expandButton"></i>
+                <h1 class="tit">Frozen<h1 class="sci">Meat</h1>
+                </h1>
+            </li>
+            <a href="dashboard.html"><li><i class='bx bxs-dashboard'></i> <span>Menu</span></li></a>
+            <a href="dashboard2.html"><li><i class='bx bxs-thermometer'></i><span>Ver frigoríficos</span></li></a>
+            <a href="telaLogin.html"><li class="bai"><i class='bx bx-log-out uau'></i><span class="dif2">Log-out</span></li></a>
+        </ul>
+    </div>
+
+    <div class="grandona">
+        <div class="detalhes">
+            <p>4 frigoríficos estão em situação crítica. </p>
+            <span>Algumas temperaturas registradas extrapolaram a faixa de temperatura ideal nos frigoríficos presentes
+                na tabela. Eles precisam da sua atenção! Recomendado entrar em contato com a loja.</span>
+        </div>
+    </div>
+
+    <div class="principal">
+        <div class="scroll">
+            <table class="tabela">
+                <tr>
+                    <th>Frigorífico</th>
+                    <th>Categoria do Sensor</th>
+                    <th>Data</th>
+                    <th>Detalhes</th>
+                </tr>
+                <tr>
+                    <td>Swift - Pamplona</td>
+                    <td>Loja</td>
+                    <td>23/03/2024</td>
+                    <td><button onclick="detalhes1()">Ver detalhes</button></td>
+                </tr>
+                <tr>
+                    <td>Swift - Vila Mariana</td>
+                    <td>Caminhão</td>
+                    <td>01/04/2024</td>
+                    <td><button onclick="detalhes2()">Ver detalhes</button></td>
+                </tr>
+                <td>Swift - Cambuci</td>
+                <td>Caminhão</td>
+                <td>10/02/2024</td>
+                <td><button onclick="detalhes3()">Ver detalhes</button></td>
+                </tr>
+                <tr>
+                    <td>Swift - Pirituba</td>
+                    <td>Caminhão</td>
+                    <td>15/04/2024</td>
+                    <td><button onclick="detalhes4()">Ver detalhes</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="grafGde">
+    <div id="grafico1" class="graficos">
+        <h3>Swift - Pamplona</h3>
+        <canvas id="myChart" style="position: relative"></canvas>
+    </div>
+    <div id="grafico2" class="graficos">
+        <h3>Swift - Vila Mariana</h3>
+        <canvas id="myChart2" style="position: relative"></canvas>
+    </div>
+    <div id="grafico3" class="graficos">
+        <h3>Swift - Cambuci</h3>
+        <canvas id="myChart3" style="position: relative"></canvas>
+    </div>
+    <div id="grafico4" class="graficos">
+        <h3>Swift - Pirituba</h3>
+        <canvas id="myChart4" style="position: relative"></canvas>
+    </div>
+</div>
+
+
+
+
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidebar = document.getElementById("sidebar");
+        const expandButton = document.getElementById("expandButton");
+
+        expandButton.addEventListener("click", function () {
+            sidebar.classList.toggle("expanded");
+        });
+    });
+
+
+    grafico1.style.display = 'none';
+    grafico2.style.display = 'none';
+    grafico3.style.display = 'none';
+    grafico4.style.display = 'none';
+
+    // gráficos de linha 
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: '#7c9cff',
+                borderColor: '#7c9cff',
+                data: [3.2, 1.6, 3.5, 4.0, 2.8, 1.2, 2.0, 3.6, 4.8, 4.9, 4.5, 4.2, 0.4, 2.0, 3.6, 1.2, 2.4, 0.8, 2.8, 4.0, 1.6, 3.2, 2.0, 3.6],
+                borderWidth: 1
+            }, {
+                label: 'Limite inferior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                borderWidth: 1
+        },{
+                label: 'Limite superior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
+                borderWidth: 1
+        }
+    ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: '#7c9cff',
+                borderColor: '#7c9cff',
+                data: [3.2, 1.6, 3.9, 4.0, 2.0, 1.2, 2.0, 3.6, -0.4, 4.5, 4.7, 4.6, 4.4, 3.8, 3.6, 1.2, 2.4, 0.8, 2.8, 4.0, 1.6, 3.2, 2.0, 3.6],
+                borderWidth: 1
+            }, {
+                label: 'Limite inferior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                borderWidth: 1
+        },{
+                label: 'Limite superior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
+                borderWidth: 1
+        }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+
+    new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: '#7c9cff',
+                borderColor: '#7c9cff',
+                data: [3.2, 1.6, 3.9, 4.0, 2.0, -0.6, -0.8, 3.6, 0.0, 2.8, 1.6, 3.2, 0.4, 2.0, 3.6, 1.2, 2.4, 0.8, 2.8, 4.9, 1.6, 3.2, 2.0, 3.6],
+                borderWidth: 1
+            },{
+                label: 'Limite inferior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                borderWidth: 1
+        },{
+                label: 'Limite superior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
+                borderWidth: 1
+        }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx4 = document.getElementById('myChart4');
+
+    new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Temperatura',
+                backgroundColor: '#7c9cff',
+                borderColor: '#7c9cff',
+                data: [3.2, 1.6, 3.9, 4.0, 2.0, 1.2, 2.0, 3.6, 0.0, 2.8, 1.6, 3.2, 0.4, 2.0, 3.6, 1.2, 2.4, 0.8, 2.8, 4.0, 4.2, 4.2, 4.2, 4.2],
+                borderWidth: 1
+            }, {
+                label: 'Limite inferior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                borderWidth: 1
+        },{
+                label: 'Limite superior',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
+                borderWidth: 1
+        }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // funções para aparecerem os gráficos
+    function detalhes1() {
+          grafico1.style.display = 'block';
+        window.scrollTo({
+            top: 900,
+            behavior: "smooth"
+        })
+      
+        grafico2.style.display = 'none';
+        grafico3.style.display = 'none';
+        grafico4.style.display = 'none';
+    }
+
+    function detalhes2() {
+        grafico2.style.display = 'block';
+        window.scrollTo({
+            top: 1000,
+            behavior: "smooth"
+        })
+        grafico1.style.display = 'none';
+        grafico3.style.display = 'none';
+        grafico4.style.display = 'none';
+    }
+
+    function detalhes3() {
+        grafico3.style.display = 'block';
+        window.scrollTo({
+            top: 900,
+            behavior: "smooth"
+        })
+        grafico2.style.display = 'none';
+        grafico1.style.display = 'none';
+        grafico4.style.display = 'none';
+    }
+
+    function detalhes4() {
+        grafico4.style.display = 'block';
+        window.scrollTo({
+            top: 900,
+            behavior: "smooth"
+        })
+        grafico2.style.display = 'none';
+        grafico1.style.display = 'none';
+        grafico3.style.display = 'none';
+    }
+</script>

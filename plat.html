@@ -9,16 +9,130 @@
         <link rel="icon" href="logo.png" type="image/x-icon">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>VaporWave</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 <body>
-    <div class="side-bar">
-        <div class="logo">
-            <a href="plat.html"><img src="logo.png" alt="logo"></a>
-            <h3>Bem Vindo</h3>
+    <div class="backgrau">
+        <div class="side-bar">
+            <div class="logo">
+                <a href="plat.html"><img src="logo.png" alt="logo"></a>
+                <h3>Bem Vindo</h3>
+            </div>
+            <div class="content">
+                <div class="opcao"><i class='bx bxs-sushi'></i><span>Métricas</span></div>
+                <div class="opcao"><i class='bx bxs-sushi'></i><span>Quiz</span></div>
+                <div class="opcao"><i class='bx bxs-sushi'></i><span>Subgeneros</span></div>
+            </div>
+            <div class="logout">
+                <div class="opcao"><i class='bx bxs-sushi'></i><span>Sair</span></div>
+            </div>
         </div>
-        <div class="content">
-            <div class="opcao"><i class='bx bxs-sushi'></i><span>Subgeneros</span></div>
+        <div class="analytics">
+            <div class="analytics-top">
+
+                <div class="card-wave">
+                    <div class="close">
+                        <div class="fatal">
+                            <h2>Bem Vindo!</h2>
+                        </div>
+                        <div class="coco">
+                            <button>X</button>
+                        </div>
+                    </div>
+                    <div class="contento">
+                        <img src="/icons_32x32/world.png" alt="">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ea at, praesentium optio beatae impedit, quidem dolor eius vitae molestiae sunt quo perferendis.</p>
+                    </div>
+                    <div class="ok">
+                        <button class="buttu-ok">Ir</button>
+                    </div>
+                </div>
+
+                <div class="card-wave">
+                    <div class="close">
+                        <div class="fatal">
+                            <h2>Fatal Error</h2>
+                        </div>
+                        <div class="coco">
+                            <button>X</button>
+                        </div>
+                    </div>
+                    <div class="contento">
+                        <img src="/icons_32x32/aseprite.png" alt="">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ea at, praesentium optio beatae impedit, quidem dolor eius vitae molestiae sunt quo perferendis.</p>
+                    </div>
+                    <div class="ok">
+                        <button class="buttu-ok">Ir</button>
+                    </div>
+                </div>
+
+                <div class="card-wave">
+                    <div class="close">
+                        <div class="fatal">
+                            <h2>Fatal Error</h2>
+                        </div>
+                        <div class="coco">
+                            <button>X</button>
+                        </div>
+                    </div>
+                    <div class="contento">
+                        <img src="/icons_32x32/this_computer.png" alt="">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ea at, praesentium optio beatae impedit, quidem dolor eius vitae molestiae sunt quo perferendis.</p>
+                    </div>
+                    <div class="ok">
+                        <button class="buttu-ok">Ir</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="analytics-bottom">
+
+                <div class="card-wave">
+                    <div class="close">
+                        <div class="fatal">
+                            <h2>Gráfico de Respostas</h2>
+                        </div>
+                        <div class="coco">
+                            <button>X</button>
+                        </div>
+                    </div>
+                    <div class="contento">
+                        <canvas id="myChart" width="1000px" height="400px" style="position: relative;"></canvas>
+                    </div>
+                    <div class="ok">
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>
 </html>
+
+<script>
+
+const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Respostas ao Quizz',
+                backgroundColor: '#ff61c7',
+                borderColor: '#ff61c7',
+                data: [3.2, 1.6, 3.5, 4.0, 2.8, 1.2, 2.0, 3.6, 4.8, 4.9, 4.5, 4.2, 0.4, 2.0, 3.6, 1.2, 2.4, 0.8, 2.8, 4.0, 1.6, 3.2, 2.0, 3.6],
+                borderWidth: 3
+            }
+    ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+</script>

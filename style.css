@@ -62,7 +62,9 @@
     box-sizing: border-box;
     font-family: 'Nowduke-Regular.ttf';
 }
-
+body {
+    background: #0c0607;
+}
 /* 
 Cores - VaporWave
 #fe849b
@@ -80,6 +82,18 @@ Cores - CyberPunk
 #d7e036
 
 */
+
+/* BackGround */
+.backgrau {
+    width: 100%;
+    height: 100vh;
+    background: 
+    linear-gradient(rgba(1, 1, 56, 0.897), rgba(1, 1, 56, 0.897)),
+    url('wp.jpg');
+    background-size: cover;
+    display: flex;
+}
+
 
 /* botão modo noturno */
   
@@ -335,11 +349,12 @@ Cores - CyberPunk
 .side-bar{
     width: 300px;
     height: 100vh;
-    background: #210d18;
+    background: #fe849b;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 10px;
 }
 .side-bar .logo {
@@ -357,33 +372,196 @@ Cores - CyberPunk
     transition: 0.5s ease;
 }
 .side-bar .logo h3 {
-    color: #fe849b;
+    color: #210d18;
     font-family: 'torchzilla-regular.ttf';
     font-size: 45px;
 }
 .side-bar .logo h3:hover {
-    text-shadow: 2px 2px 5px #6bffba,
-    5px 5px 70px #6bffba;
+    text-shadow: 2px 2px 5px #8b8bbd,
+    5px 5px 70px #8b8bbd;
     transform: scale(1.1);
     transition: 1s ease;
 }
 .side-bar .content {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    height: 400px;
 }
 .side-bar .content .opcao {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    cursor: pointer;
 }
 .side-bar .content .opcao span{
     font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
     color: #707099;
     font-family:'Sportify Slant.ttf';
+}
+.side-bar .content .opcao span:hover {
+    color: #fff;
+    background: #8b8bbd;
+    transition: 0.5s ease;
 }
 .side-bar .content .opcao i {
     font-size: 30px;
     color: #707099;
+}
+.side-bar .logout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 30px;
+    height: fit-content;
+}
+.side-bar .logout .opcao {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.side-bar .logout .opcao span{
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #707099;
+    font-family:'Sportify Slant.ttf';
+}
+.side-bar .logout .opcao span:hover {
+    color: #fff;
+    background: #8b8bbd;
+    transition: 0.5s ease;
+}
+.side-bar .logout .opcao i {
+    font-size: 30px;
+    color: #707099;
+}
+
+/* analytics */
+
+.analytics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: calc(100% - 300px);
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+.analytics-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    height: 35%;
+}
+.analytics-bottom {
+    width: 95%;
+    height: 55%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.analytics-bottom .card-wave{
+    width: 1000px;
+    height: 500px;
+    background: #bebebe;
+    box-shadow: 10px 15px 10px 10px #00000017;
+}
+.analytics-bottom .close{
+    width: 100%;
+    height: 15%;
+    background: linear-gradient(to right, rgb(133 3 33), rgb(206 17 167));
+    display: flex;
+    justify-content: space-between;
+}
+.analytics-bottom .contento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#myChart {
+    margin-top: 50px;
+    transform: scale(1.1);
+}
+
+/* Card Retro <3 */
+
+.card-wave{
+    width: 400px;
+    height: 200px;
+    background: #bebebe;
+    box-shadow: 10px 15px 10px 10px #00000017;
+}
+.close{
+    width: 100%;
+    height: 15%;
+    background: linear-gradient(to right, rgb(53, 53, 255), rgb(98, 81, 250));
+    display: flex;
+    justify-content: space-between;
+}
+.fatal{
+    font-family: 'Times New Roman', Times, serif ;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    align-items: center;
+}
+.fatal h2{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif ;
+}
+.coco{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.coco button{
+    font-family: 'Times New Roman', Times, serif ;
+    background: #bebebe;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+.contento{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 65%;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+.contento img {
+    width: 80px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.contento p {
+    font-family: 'Times New Roman', Times, serif;
+    width: 250px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+.ok{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttu-ok{
+    font-family: 'Times New Roman', Times, serif ;
+    width: 80px;
+    background: #bebebe;
+    cursor: pointer;
 }
 
 @media (max-width: 920px) {

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+        background: #e8e8e8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-wave{
+        width: 400px;
+        height: 200px;
+        background: #bebebe;
+        box-shadow: 10px 15px 10px 10px #00000017;
+    }
+    .close{
+        width: 100%;
+        height: 15%;
+        background: linear-gradient(to right, rgb(53, 53, 255), rgb(98, 81, 250));
+        display: flex;
+        justify-content: space-between;
+    }
+    .fatal{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        color: aliceblue;
+        align-items: center;
+    }
+    .fatal h2{
+        font-size: 20px;
+    }
+    .coco{
+        width: 10%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .coco button{
+        background: #bebebe;
+        cursor: pointer;
+    }
+    .content{
+        width: 100%;
+        height: 65%;
+    }
+    .ok{
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttu-ok{
+        width: 80px;
+        background: #bebebe;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="card-wave">
+        <div class="close">
+            <div class="fatal">
+                <h2>Fatal Error</h2>
+            </div>
+            <div class="coco">
+                <button>X</button>
+            </div>
+        </div>
+        <div class="content"></div>
+        <div class="ok">
+            <button class="buttu-ok">Ir</button>
+        </div>
+    </div>
+</body>
+</html>
