@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../logo.png" type="image/x-icon">
+    <title>VaporWave</title>
+</head>
+
+<body>
+    <!-- nav -->
+    <div class="navbar">
+        <div class="loguinho">
+            <a href="../../index.html" style="list-style: none; text-decoration: none;"><img src="../../logo.png" alt="logo"></a>
+        </div>
+
+        <div class="menu-btn">
+            <i class="fa fa-bars fa-2x" onclick="menuShow()" ></i>
+        </div>
+
+        <div class="opcoes" id="nargas">
+            <div class="">
+                <ul>
+                    <li> <a href="../../index.html">Inicio</a> </li>
+                    <li> <a href="login.html">Entrar</a> </li>
+                    <li> <a href="cadastro.html">Cadastrar</a> </li>
+                </ul>
+            </div>
+            <div class="cyberpunk">
+                <li class="liCyber"> <button><img src="../../imagens/cyberpunk.png" alt=""></button> </li>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="container inicio">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+              <span id="mensagem_erro"></span>
+            </div>
+          </div>
+        <div class="cadastro">
+            <div class="conteudo">
+                <h1>Cadastro</h1>
+
+                <h3>RA</h3>
+                <input type="text" id="ipt_ra" placeholder="Digite seu RA">
+                <h3>Nome</h3>
+                <input type="text" id="ipt_nome" placeholder="Digite seu nome">
+                <h3>Email</h3>
+                <input type="text" id="ipt_email" placeholder="Digite seu email">
+                <h3>Senha</h3>
+                <input type="password" id="ipt_senha" placeholder="Digite sua senha">
+                <h3>Confirma Senha</h3>
+                <input type="password" id="ipt_cSenha" placeholder="Confirme sua senha">
+                <h3>Conhece VaporWave?</h3>
+                <select name="selectVapor" id="slc_vapor">
+                    <option value="Sim">Sim</option>
+                    <option value="Nao">Não</option>
+                </select>
+                <button onclick="cadastrar()">Cadastrar</button>
+
+                <div id="div_erros_login"></div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+
+</html>
+
+<script src="main.js"></script>
+<script>
+    function cadastrar() {
+        
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var ra = ipt_ra.value; 
+        var nome = ipt_nome.value; 
+        var email = ipt_email.value; 
+        var senha = ipt_senha.value; 
+        var cSenha = ipt_cSenha.value;
+        
+      
+      if (
+        ra == "" ||
+        nome == "" ||
+        email == "" ||
+        senha == "" ||
+        cSenha == "" 
+      ) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML =
+          "(Mensagem de erro para todos os campos em branco)";
+  
+        return false;
+      } else {
+        setInterval(sumirMensagem, 5000);
+      }
+  
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          raServer: ra,
+          nomeServer: nome,
+          emailServer: email,
+          senhaServer: senha
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+  
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+  
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+  
+            limparFormulario();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+  
+      return false;
+    }
+  
+    function sumirMensagem() {
+      cardErro.style.display = "none";
+    }
+  </script>

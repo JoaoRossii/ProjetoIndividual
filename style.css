@@ -1,0 +1,433 @@
+/* fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
+@font-face {
+    font-family: 'Nowduke-Regular.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Nowduke-Regular.ttf'), url('fonte/Nowduke-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'torchzilla-regular.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/torchzilla-regular.ttf'), url('fonte/torchzilla-regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Discopia Regular.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Discopia Regular.ttf'), url('fonte/Discopia Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sportify Gradation Slant.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Sportify Gradation Slant.ttf'), url('fonte/Sportify Gradation Slant.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sportify Gradation.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Sportify Gradationttf'), url('fonte/Sportify Gradation.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sportify Line Slant.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Sportify Line Slant.ttf'), url('fonte/Sportify Line Slant.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sportify Line.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Sportify Line.ttf'), url('fonte/Sportify Line.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sportify Slant.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Sportify Slant.ttf'), url('fonte/Sportify Slant.woff') format('woff');
+}
+@font-face {
+    font-family: 'Sportify Slant.ttf';
+    font-style: normal;
+    font-weight: bold;
+    src: local('fonte/Sportify Slant.ttf'), url('fonte/Sportify Slant.woff') format('woff');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nowduke-Regular.ttf';
+}
+
+/* 
+Cores - VaporWave
+#fe849b
+#010204
+#aa6675
+#210d18
+#8b8bbd
+#6bffb9
+
+Cores - CyberPunk
+#d6d026
+#5d9a56
+#085554
+#10170f
+#d7e036
+
+*/
+
+/* botão modo noturno */
+  
+.navbar{
+    width: 100%;
+    height: 80px;
+    background: #fe849b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar .menu-btn {
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.opcoes ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.loguinho{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loguinho img{
+    width: 50px;
+}
+.opcoes{
+    width: 500px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.opcoes .liCyber:hover {
+    background: none;
+    cursor: pointer;
+    transform:scale(1.1);
+    transition: 0.5s ease;
+}
+.opcoes .liCyber button {
+    cursor: pointer;
+}
+.opcoes li, a{
+    list-style: none;
+    text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+}
+.opcoes li button {
+    background: none;
+    border: none;
+    height: 20px;
+}
+.opcoes li button img{
+    width: 60px;
+}
+.opcoes li:hover {
+    background-color: #8b8bbd;    
+    transition: 0.5s ease;
+}
+
+.modo {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    background-size: cover; 
+}
+.inicio {
+    background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('bg.png');
+    z-index: -100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.carde {
+    background: #0c0607;
+    z-index: -100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+    width: 100%;
+}
+/* cards */
+
+.cardes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.card {
+    width: 350px;
+    height: 500px;
+    background-image: linear-gradient(163deg, #fe849b 0%, #6bffb9 100%);
+    border-radius: 20px;
+    transition: all .3s;
+   }
+.cardTitulo {
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardTitulo h1{
+    color: #fe849b;
+    position: absolute;
+    margin-bottom: 50px;
+    font-size: 60px;
+    font-family: 'Sportify Slant.ttf';
+}
+   .card2 {
+    width: 350px;
+    height: 500px;
+    background-color: #1a1a1a;
+    border-radius:;
+    transition: all .2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+   }
+   .card2 h3{
+    font-size: 50px;
+    color: #fe849b;
+    font-family: 'torchzilla-regular.ttf';
+   }
+   .card p {
+    font-size: 18px;
+    font-family: 'Nowduke-Regular.ttf';
+    color: #f2f2f2;
+    letter-spacing: 2px;
+   }
+   
+   .card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+   }
+   
+   .card:hover {
+    box-shadow: 0px 0px 30px 1px #6bffba3d;
+   }
+
+.inicio h1 {
+    color: #fe849b;
+    font-size: 150px;
+    font-family: 'torchzilla-regular.ttf';
+    -webkit-text-stroke-color: #327a59 ;
+    -webkit-text-stroke-width: 3px;
+}
+.inicio h1:hover {
+    transform: scale(1.3);
+    transition: 1s ease;
+    text-shadow: 2px 2px 5px #6bffba,
+    5px 5px 70px #6bffba;
+}
+
+/* Cadastro e Login */ 
+
+.cadastro {
+    background: #404057;
+    width: 800px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    border: 4px solid #8b8bbd;
+}
+.cadastro .conteudo h1{
+    display: flex;
+    justify-content: center;
+    font-family: 'Sportify Slant.ttf';
+    font-size: 60px;
+    color: #fff;
+    -webkit-text-stroke-color: #8b8bbd;
+    -webkit-text-stroke-width: 3px;
+}
+.cadastro .conteudo h3{
+    color: #f2f2f2;
+    -webkit-text-stroke-color: #8b8bbd;
+    -webkit-text-stroke-width: 1px;
+    font-size: 25px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+.cadastro .conteudo input{
+    font-size: 20px;
+    color: #333346;
+    border: 2px solid #8b8bbd;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px;
+}
+.cadastro .conteudo select {
+    color:#333346;
+    font-size: 20px;
+    border: 2px solid #8b8bbd;
+    border-radius: 10px;
+    height: 40px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+.cadastro .conteudo button {
+    color: #fff;
+    background: #8b8bbd;
+    border: none;
+    margin-top: 20px;
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 480px;
+}
+.cadastro .conteudo button:hover {
+    background: #707099;
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* side-bar */
+.side-bar{
+    width: 300px;
+    height: 100vh;
+    background: #210d18;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.side-bar .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.side-bar .logo img {
+    width: 55px;
+    padding-right: 5px;
+}
+.side-bar .logo img:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+.side-bar .logo h3 {
+    color: #fe849b;
+    font-family: 'torchzilla-regular.ttf';
+    font-size: 45px;
+}
+.side-bar .logo h3:hover {
+    text-shadow: 2px 2px 5px #6bffba,
+    5px 5px 70px #6bffba;
+    transform: scale(1.1);
+    transition: 1s ease;
+}
+.side-bar .content {
+    display: flex;
+    flex-direction: column;
+}
+.side-bar .content .opcao {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.side-bar .content .opcao span{
+    font-size: 20px;
+    color: #707099;
+    font-family:'Sportify Slant.ttf';
+}
+.side-bar .content .opcao i {
+    font-size: 30px;
+    color: #707099;
+}
+
+@media (max-width: 920px) {
+    .modo {
+        display: none;
+    }
+    .cyberpunk {
+        display: none;
+    }
+    
+    .navbar .menu-btn {
+        display: block;
+        padding: 20px;
+        padding-left: 120px;
+    }
+    .navbar .opcoes ul{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background-color: #fe849b;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    .navbar .opcoes ul.open{
+        left: 0;
+    }
+    .navbar .opcoes ul li{
+        width: 100%;
+        margin: 50px 0;
+    }
+    .navbar .opcoes ul li a {
+        font-size: 23px;
+    }
+    .navbar .opcoes ul li a.active,
+    .navbar .opcoes ul li a:hover{
+        background: #8b8bbd;
+        border-radius: 10px;
+        transition: 0.5s;
+    }   
+    .navbar .opcoes ul li:hover {
+        background: none;
+        cursor: pointer;
+    }
+}
