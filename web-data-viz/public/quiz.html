@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="../js/sessao.js"></script>
+        <link rel="icon" href="logo.png" type="image/x-icon">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <title>VaporWave</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+<body>
+    <div class="backgrau">
+        <div class="side-bar">
+            <div class="logo">
+                <a href="plat.html"><img src="logo.png" alt="logo"></a>
+                <h3>Bem Vindo</h3>
+            </div>
+            <div class="content">
+                <div class="opcao"><i class='bx bxs-objects-vertical-bottom' ></i><a href="plat.html" style="text-decoration: none;"><span>Métricas</span></a></div>
+                <div class="opcao"><i class='bx bx-notepad' ></i><a href="quiz.html" style="text-decoration: none;"><span>Quiz</span></a></div>
+                <div class="opcao"><i class='bx bxs-magic-wand' ></i><span>Subgeneros</span></div>
+            </div>
+            <div class="logout">
+                <div class="opcao"><i class='bx bx-log-out'></i><a href="index.html" style="text-decoration: none;"><span href="">Sair</span></a></div>
+            </div>
+        </div>
+        <div class="analytics">
+            <span id="b_usuario" style="display: none;"></span>
+
+            <div id="quizContainer">
+                <div id="inicarQuiz">
+                    <h1>VaporWave</h1>
+                    <p>Vamos ver oque voce aprendeu até aqui!</p>
+                    <button onclick="iniciar()">Jogar</button>
+                </div>
+                <div id="quiz" style="display: none;">
+                    <div id="pergunta1" class="pergunta">
+                        <h2>Qual destes elementos do VaporWave foi citado anteriormente?</h2>
+                        <button onclick="responder(this, 'Anos 80')">Cinema</button>
+                        <button onclick="responder(this, 'Anos 80')">Animes</button>
+                        <button onclick="responder(this, 'Anos 80')">Anos 80</button>
+                        <button onclick="responder(this, 'Anos 80')">Formula 1</button>
+                    </div>
+                    <div id="pergunta2" class="pergunta" style="display: none;">
+                        <h2>Qual destes nomes corresponde a um dos subgeneros do vaporwave?</h2>
+                        <button onclick="responder(this, 'Faux Utopian')">Hip Hop</button>
+                        <button onclick="responder(this, 'Faux Utopian')">Faux Utopian</button>
+                        <button onclick="responder(this, 'Faux Utopian')">Blues</button>
+                        <button onclick="responder(this, 'Faux Utopian')">Bossa Nova</button>
+                    </div>
+                    <div id="pergunta3" class="pergunta" style="display: none;">
+                        <h2>Em elementos de qual cultura o vaporwave se inspirou muito?</h2>
+                        <button onclick="responder(this, 'Japonesa')">Espanhola</button>
+                        <button onclick="responder(this, 'Japonesa')">Brasileira</button>
+                        <button onclick="responder(this, 'Japonesa')">Tailandesa</button>
+                        <button onclick="responder(this, 'Japonesa')">Japonesa</button>
+                    </div>
+                    <div id="pergunta4" class="pergunta" style="display: none;">
+                        <h2>Qual o nome antigo do vaporwave ?</h2>
+                        <button onclick="responder(this, 'EccoJam')">EccoJam</button>
+                        <button onclick="responder(this, 'EccoJam')">Batidas Suaves</button>
+                        <button onclick="responder(this, 'EccoJam')">House</button>
+                        <button onclick="responder(this, 'EccoJam')">Eletronica</button>
+                    </div>
+                    <div id="pergunta5" class="pergunta" style="display: none;">
+                        <h2>Qual é o artista brasileiro mais popular de VaporWave?</h2>
+                        <button onclick="responder(this, 'Windows96')">Windows96</button>
+                        <button onclick="responder(this, 'Windows96')">Machina Pensant</button>
+                        <button onclick="responder(this, 'Windows96')">Vektroid</button>
+                        <button onclick="responder(this, 'Windows96')">Chuck Person</button>
+                    </div>
+                    <div id="pergunta6" class="pergunta" style="display: none;">
+                        <h2>VaporWave além de um estilo musical, também é ?</h2>
+                        <button onclick="responder(this, 'Estilo de arte visual')">Estilo Automobilistico</button>
+                        <button onclick="responder(this, 'Estilo de arte visual')">Estilo de arte visual</button>
+                        <button onclick="responder(this, 'Estilo de arte visual')">Estilo de maquiagem</button>
+                        <button onclick="responder(this, 'Estilo de arte visual')">Estilo de dança</button>
+                    </div>
+                    <div id="pergunta7" class="pergunta" style="display: none;">
+                        <h2>Qual um sentimento que o vaporwave causa?</h2>
+                        <button onclick="responder(this, 'Nostalgia')">Ansiedade</button>
+                        <button onclick="responder(this, 'Nostalgia')">Tristeza</button>
+                        <button onclick="responder(this, 'Nostalgia')">Nostalgia</button>
+                        <button onclick="responder(this, 'Nostalgia')">Desespero</button>
+                    </div>
+                    <div id="pergunta8" class="pergunta" style="display: none;">
+                        <h2>Vaporwave voltou a viralizar em conjunto com qual serie animada?</h2>
+                        <button onclick="responder(this, 'Simpsons')">Familia da Pesada</button>
+                        <button onclick="responder(this, 'Simpsons')">Rick and Morty</button>
+                        <button onclick="responder(this, 'Simpsons')">South Park</button>
+                        <button onclick="responder(this, 'Simpsons')">Simpsons</button>
+                    </div>
+                    <div id="pergunta9" class="pergunta" style="display: none;">
+                        <h2>Quais conjuntos de cores são mais presentes no VaporWave</h2>
+                        <button onclick="responder(this, 'Cores Neon')">Cores Primarias</button>
+                        <button onclick="responder(this, 'Cores Neon')">Cores Pasteis</button>
+                        <button onclick="responder(this, 'Cores Neon')">Cores Neon</button>
+                        <button onclick="responder(this, 'Cores Neon')">Cores Monocromaticas</button>
+                    </div>
+                    <div id="pergunta10" class="pergunta" style="display: none;">
+                        <h2>Qual tecnica musical é muito utilizada no vaporwave?</h2>
+                        <button onclick="responder(this, 'Sample')">Regravação</button>
+                        <button onclick="responder(this, 'Sample')">AutoTune</button>
+                        <button onclick="responder(this, 'Sample')">Sample</button>
+                        <button onclick="responder(this, 'Sample')">Masterização</button>
+                    </div>
+                </div>
+                <div id="resultados" style="display: none;">
+                    <h2>Resultados do Quiz</h2>
+                    <canvas id="graficoResultados"></canvas>
+                    <div id="indicadores">
+                        <p>Média de acertos: <span id="media"></span></p>
+                        <p>Você está <span id="acimaOuAbaixo"></span> da média.</p>
+                        <p>Desempenho: <span id="desempenho"></span></p>
+                    </div>
+                    <button onclick="voltar()">Voltar</button>
+                </div>
+                <div id="div_homem"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    
+    // Define o nome do usuário a partir da sessão
+    const b_usuario = document.getElementById('b_usuario');
+    if (sessionStorage.NOME_USUARIO) {
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    } else {
+        b_usuario.innerHTML = 'usuário';
+    }
+
+    var respostasCorretas = 0;
+    var respostasIncorretas = 0;
+
+    function iniciar() {
+        document.getElementById('inicarQuiz').style.display = 'none';
+        document.getElementById('quiz').style.display = 'block';
+    }
+
+    var perguntaAtual = 1;
+    var totalDePerguntas = 10; // Corrigido para o número real de perguntas
+
+    function responder(botao, respostaCorreta) {
+        const respostaSelecionada = botao.textContent;
+        if (respostaSelecionada === respostaCorreta) {
+            respostasCorretas++;
+        } else {
+            respostasIncorretas++;
+        }
+        document.getElementById("pergunta" + perguntaAtual).style.display = "none";
+        if (perguntaAtual < totalDePerguntas) {
+            perguntaAtual++;
+            document.getElementById("pergunta" + perguntaAtual).style.display = "block";
+        } else {
+            div_homem.innerHTML = `<button onclick="insert()">Finalizar</button>` //exibirResultados();
+        }
+    }
+
+    function obterIdUsuario() {
+        return sessionStorage.ID_USUARIO || 'desconhecido';
+    }
+
+    function exibirResultados() {
+        const fk_usuario = obterIdUsuario();
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("resultados").style.display = "block";
+
+        const totalRespostas = respostasCorretas + respostasIncorretas;
+        const media = (respostasCorretas / totalRespostas) * 100;
+        document.getElementById("media").textContent = media.toFixed(2) + "%";
+
+        const mediaGeral = 70;
+        if (media >= mediaGeral) {
+            document.getElementById("acimaOuAbaixo").textContent = "acima";
+        } else {
+            document.getElementById("acimaOuAbaixo").textContent = "abaixo";
+        }
+
+        var desempenho = '';
+        if (media >= 80) {
+            desempenho = 'Bom';
+        } else if (media >= 50) {
+            desempenho = 'Médio';
+        } else {
+            desempenho = 'Ruim';
+        }
+        document.getElementById("desempenho").textContent = desempenho;
+
+        fetch('/medidas/salvar-resultados', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                acertos: respostasCorretas,
+                erros: respostasIncorretas,
+                fk_usuario: fk_usuario
+            })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao salvar resultados');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Resultados salvos com sucesso:', data);
+            })
+            .catch(error => {
+                console.error('Erro ao salvar resultados:', error);
+            });
+
+        const ctx = document.getElementById('graficoResultados').getContext('2d');
+        const quizChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Respostas Corretas', 'Respostas Incorretas'],
+                datasets: [{
+                    label: 'Quantidade',
+                    data: [respostasCorretas, respostasIncorretas],
+                    backgroundColor: [
+                        'rgba(75, 192, 192)',
+                        'rgba(255, 99, 132)',
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    function voltar() {
+        window.location.href = './dashboard.html';
+    }
+
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location.href = '../index.html';
+    }
+
+    function insert() {
+        var respostasCorretasVar = respostasCorretas;
+        var respostasIncorretasVar = respostasIncorretas;
+        // var idUsuario = idUsuario;
+
+
+        fetch("/usuarios/insert", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                respostasCorretasServer: respostasCorretasVar,
+                respostasIncorretasServer: respostasIncorretasVar,
+                idUsuarioServer: sessionStorage.ID_USUARIO,
+            }),
+        })
+    }
+</script>

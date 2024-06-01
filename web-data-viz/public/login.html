@@ -49,7 +49,7 @@
                 <h3>Email</h3>
                 <input type="text" id="ipt_email" placeholder="Digite seu email">
                 <h3>Senha</h3>
-                <input type="text" id="ipt_senha" placeholder="Digite sua senha">
+                <input type="password" id="ipt_senha" placeholder="Digite sua senha">
                 <button onclick="entrar()">Entrar</button>
                 <div id="div_erros_login"></div>
             </div>
@@ -105,7 +105,7 @@
                     sessionStorage.ID_USUARIO = json.ra;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./plat.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

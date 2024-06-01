@@ -62,9 +62,6 @@
     box-sizing: border-box;
     font-family: 'Nowduke-Regular.ttf';
 }
-body {
-    background: #0c0607;
-}
 /* 
 Cores - VaporWave
 #fe849b
@@ -200,6 +197,96 @@ Cores - CyberPunk
     align-items: center;
     height: 750px;
     width: 100%;
+}
+.historia {
+    z-index: -100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 750px;
+    width: 100%;
+    background: 
+    linear-gradient(rgba(0,0,0,0.900), rgba(0, 0, 0, 0.900)),
+    url('/imagens/img5.jpg');
+}
+.contador {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+}
+.contador h1 {
+    font-size: 60px;
+    color: #6bffb9;
+}
+.contador p {
+    font-size: 25px;
+    color: #fff;
+}
+.imagem {
+    display: flex;
+    flex-direction: column;
+}
+.imagem img {
+    border-radius: 10px;
+}
+.zampieri {
+    z-index: -100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 750px;
+    width: 100%;
+    background: 
+    linear-gradient(rgba(0, 85, 57, 0.801), rgba(71, 0, 62, 0.781)),
+    url('/imagens/laser.jpg');
+}
+.footer {
+    z-index: -100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    background: #fe849b;
+}
+.footer h3 {
+    color: #210d18;
+    font-family: 'Sportify Slant.ttf';
+    padding: 10px;
+    border: 4px solid #210d18;
+    border-radius: 10px;
+}
+.footer .navegar {
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+}
+.footer .navegar a{
+    color: #210d18;
+}
+.footer .navegar a:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+.footer img {
+    width: 60px;
+
+}
+.zampImg img{
+    width: 500px;
+    border-radius: 10px;
+}
+
+#quizContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1400px;
+    height: 80vh;
+    background: #327a59;
 }
 /* cards */
 
@@ -484,8 +571,7 @@ Cores - CyberPunk
     align-items: center;
 }
 #myChart {
-    margin-top: 50px;
-    transform: scale(1.1);
+    margin-top: 80px;
 }
 
 /* Card Retro <3 */
@@ -559,7 +645,7 @@ Cores - CyberPunk
 }
 .buttu-ok{
     font-family: 'Times New Roman', Times, serif ;
-    width: 80px;
+    width: 100px;
     background: #bebebe;
     cursor: pointer;
 }
