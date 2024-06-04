@@ -22,15 +22,14 @@
             <div class="content">
                 <div class="opcao"><i class='bx bxs-objects-vertical-bottom' ></i><a href="plat.html" style="text-decoration: none;"><span>Métricas</span></a></div>
                 <div class="opcao"><i class='bx bx-notepad' ></i><a href="quiz.html" style="text-decoration: none;"><span>Quiz</span></a></div>
-                <div class="opcao"><i class='bx bxs-magic-wand' ></i><span>Subgeneros</span></div>
+                <div class="opcao"><i class='bx bxs-magic-wand' ></i><a href="subgeneros.html" style="text-decoration: none;"><span>Subgeneros</span></a></div>
             </div>
             <div class="logout">
-                <div class="opcao"><i class='bx bx-log-out'></i><a href="index.html" style="text-decoration: none;"><span href="">Sair</span></a></div>
+                <div class="opcao"><i class='bx bx-log-out'></i><a href="../../index.html" style="text-decoration: none;"><span href="">Sair</span></a></div>
             </div>
         </div>
         <div class="analytics">
             <div class="analytics-top">
-
                 <div class="card-wave">
                     <div class="close">
                         <div class="fatal">
@@ -60,7 +59,7 @@
                     </div>
                     <div class="contento">
                         <img src="/icons_32x32/aseprite.png" alt="">
-                        <p>Nosso dashboard é atualizado em tempo real, conforme os usuários concluem o quiz.</p>
+                        <p>Nosso dashboard é atualizado em tempo real, conforme os usuários concluem o quiz, recarregue a pagina para conferir.</p>
                     </div>
                     <div class="ok">
                         <button class="buttu-ok">Você está Aqui</button>
@@ -81,7 +80,7 @@
                         <p>Venha em nossa pagina de subgeneros, lá você poderá apreciar o vaporwave em sua plena essência !</p>
                     </div>
                     <div class="ok">
-                        <button class="buttu-ok">Ir</button>
+                        <button class="buttu-ok"><a href="subgeneros.html" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; font-size: 13px; color: black;">Ir</a></button>
                     </div>
                 </div>
 
@@ -98,7 +97,7 @@
                         </div>
                     </div>
                     <div class="contento">
-                        <canvas id="myChart" width="1000" height="400" style="position: relative;"></canvas>
+                       <div id="graficos"></div>
                     </div>
                     <div class="ok">
                     </div>
@@ -112,28 +111,96 @@
 
 <script>
 
-const ctx = document.getElementById('myChart');
+    let proximaAtualizacao;
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['00:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-            datasets: [{
-                label: 'Respostas ao Quizz',
-                backgroundColor: '#ff61c7',
-                borderColor: '#ff61c7',
-                data: [3.2, 1.6, 3.5, 4.0, 2.8, 1.2, 2.0, 3.6, 4.8, 4.9, 4.5, 4.2, 0.4, 2.0, 3.6, 1.2, 2.4, 0.8, 2.8, 4.0, 1.6, 3.2, 2.0, 3.6],
-                borderWidth: 3
+    window.onload = graficosQuiz();
+
+    function graficosQuiz() {
+        document.getElementById("graficos").innerHTML += `
+        <div id="grafico">
+            <div class="graph">
+                <canvas id="myChartCanvas"></canvas>
+            </div>
+        </div>
+    `;
+
+        obterDadosGrafico();
+    }
+
+    function obterDadosGrafico() {
+        var idAluno = sessionStorage.ID_USUARIO;
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+        fetch(`/usuarios/dashboardQuizAtual/${idAluno}`, { cache: 'no-store', }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    plotarGrafico(resposta, idAluno);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
             }
-    ]
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+    console.log('Iniciando plotagem do gráfico...');
+
+    let labels = ["Acertos                                                                                        Erros"];
+
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Acertos',
+            data: [resposta[0].acertos],
+            backgroundColor: '#8b8bbd',
+            borderColor: '#8b8bbd',
+            borderWidth: 1
         },
+        {
+            label: 'Erros',
+            data: [resposta[0].erros],
+            backgroundColor: '#fe849b',
+            borderColor: '#fe849b',
+            borderWidth: 1
+        }]
+    };
+
+    // Configuração do gráfico
+    const config = {
+        type: 'bar',
+        data: dados,
         options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'black' // Cor das legendas
+                    }
+                }
+            },
             scales: {
+                x: {
+                    ticks: {
+                        color: 'black' // Cor dos rótulos do eixo X
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    ticks: {
+                        color: 'black' // Cor dos rótulos do eixo Y
+                    }
                 }
             }
         }
-    });
+    };
 
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+        document.getElementById('myChartCanvas'),
+        config
+    );
+}
 </script>

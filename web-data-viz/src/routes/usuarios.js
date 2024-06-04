@@ -16,4 +16,16 @@ router.post("/insert", function (req, res) {
     usuarioController.insert(req, res);
 });
 
+router.post("/mapear", function (req, res) {
+    usuarioController.mapear(req, res);
+});
+
+router.get("/dashboardQuiz", function (req, res) {
+    usuarioController.dashboardQuiz(req, res);
+});
+
+router.get("/dashboardQuizAtual/:idAluno", function (req, res) {
+    usuarioController.dashboardQuizAtual(req, res);
+});
+
 module.exports = router;

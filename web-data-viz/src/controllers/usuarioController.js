@@ -116,8 +116,54 @@ function insert(req, res) {
             );
     }
 }
+function mapear(req, res) {
+
+    var id = req.body.idUsuarioServer;
+    usuarioModel.mapear(id).then(
+        function(metricas){
+            res.json({
+                metricas
+            })
+        }
+    )
+}
+
+function dashboardQuiz(req, res) {
+    const limite_linhas = 1;
+
+    usuarioModel.dashboardQuiz(limite_linhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function dashboardQuizAtual(req, res) {
+    var idAluno = req.params.idAluno;
+    usuarioModel.dashboardQuizAtual(idAluno).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    insert
+    insert,
+    mapear,
+    dashboardQuiz,
+    dashboardQuizAtual
 }

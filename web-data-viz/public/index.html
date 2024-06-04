@@ -1,82 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>VaporWave</title>
 </head>
 
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+    <!-- nav -->
+    <div class="navbar">
+        <div class="loguinho">
+            <a href="index.html" style="list-style: none; text-decoration: none;"><img src="logo.png" alt="logo"></a>
         </div>
-      </div>
+
+        <div class="menu-btn">
+            <i class="fa fa-bars fa-2x" onclick="menuShow()" ></i>
+        </div>
+
+        <div class="opcoes" id="nargas">
+            <div class="">
+                <ul>
+                    <li> <a href="index.html">Inicio</a> </li>
+                    <li> <a href="login.html">Entrar</a> </li>
+                    <li> <a href="cadastro.html">Cadastrar</a> </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+    <div class="container inicio">
+        <h1>VaporWave</h1>
     </div>
-  </body>
+    <div class="container historia">
+        <div class="contador">
+            <h1>O que é?</h1>
+            <p>Vaporwave é um gênero musical, um estilo de arte visual e um meme que surgiu no início da década de 2010 entre algumas comunidades da internet.
+            O conceito é caracterizado por uma fascinação nostálgica pela estética dos anos 80 e 90, abrangendo referências a diversos aspectos culturais produzidos à época.</p>
+        </div>
+        <div class="imagem">
+            <img src="imagens/win.jfif" alt="">
+        </div>
+    </div>
+    <div class="container carde">
+        <div class="cardTitulo"><H1>Elementos</H1></div>
+        <div class="cardes">
+            <div class="card">
+                <div class="card2">
+                    <img src="imagens/img2.jpg" alt="imagem" style="width: 250px; height: 168px; margin-bottom: 40px;">
+                    <h3>Estilo Musical</h3>
+                    <p>Estilo diverso, contendo diversas referências vindas do lo-fi, jazz, blues, musica pop dos anos 80, em sua maioria, sempre referências americanas e japonesas.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card2">
+                    <img src="imagens/img4.png" alt="imagem" style="width: 200px; height: 188px; margin-bottom: 20px;">
+                    <h3>Estetica e Design</h3>
+                    <p>Estetica extremamente baseada em publicidade da década de 80 a 90, seguindo a mesma linha do estilo musical com referências americanas e japonesas.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card2">
+                    <img src="imagens/img3.png" alt="imagem" style="width: 200px; height: 168px; margin-bottom: 40px;">
+                    <h3>Anos 80</h3>
+                    <p>Forte inspiração em elementos culturais desta decada, o grande responsavel por todo o misticismo e sentimento de nostalgia que tanto a musica quanto o visual proporcionam. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container zampieri">
+        <div class="zampImg">
+            <img src="imagens/78312910-28c1-475c-af2b-09f5ea54f08f.jfif" alt="João Rossi">
+        </div>
+        <div class="contador">
+            <h1>Eu X VaporWave</h1>
+            <p>Eu sempre amei esse estilo de design retro que causa um efeito de falsa nostalgia, musicas e cultura dos anos 80 até 90, consumo e adoro este tipo de conteúdo até os dias de hoje. Conheci o vaporwave em 2017, ele viralizou algumas musicas conjuntamente com animações dos simpsons, desde então eu me apaixonei pelo vaporwave, pois nele tinha tudo aquilo que eu já amava, mas com uma pitada de sonho, mitério e as estatuas greco-romanas, que são um charme.</p>            
+        </div>
+    </div>
+    <div class="container footer">
+        <h3>VaporWave João Rossi - 1 CCO</h3>
+
+        <div class="navegar">
+            <a href="index.html" style="text-decoration: none;">Inicio</a>
+            <a href="login.html" style="text-decoration: none;">Entrar</a>
+            <a href="cadastro.html" style="text-decoration: none;">Cadastrar</a>
+        </div>
+        <a href="index.html" style="list-style: none; text-decoration: none;"><img src="logo.png" alt="logo"></a>
+    </div>
+    
+</body>
 
 </html>
+
+<script src="main.js"></script>

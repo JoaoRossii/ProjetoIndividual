@@ -1,5 +1,6 @@
 /* fontes */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @font-face {
     font-family: 'Nowduke-Regular.ttf';
@@ -49,18 +50,12 @@
     font-weight: bold;
     src: local('fonte/Sportify Slant.ttf'), url('fonte/Sportify Slant.woff') format('woff');
 }
-@font-face {
-    font-family: 'Sportify Slant.ttf';
-    font-style: normal;
-    font-weight: bold;
-    src: local('fonte/Sportify Slant.ttf'), url('fonte/Sportify Slant.woff') format('woff');
-}
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Nowduke-Regular.ttf';
+    font-family: 'Roboto';
 }
 /* 
 Cores - VaporWave
@@ -69,7 +64,7 @@ Cores - VaporWave
 #aa6675
 #210d18
 #8b8bbd
-#6bffb9
+
 
 Cores - CyberPunk
 #d6d026
@@ -85,7 +80,7 @@ Cores - CyberPunk
     width: 100%;
     height: 100vh;
     background: 
-    linear-gradient(rgba(1, 1, 56, 0.897), rgba(1, 1, 56, 0.897)),
+    linear-gradient(rgba(1, 1, 56, 0.897), rgba(1, 1, 56, 0.562)),
     url('wp.jpg');
     background-size: cover;
     display: flex;
@@ -151,6 +146,7 @@ Cores - CyberPunk
     padding: 10px;
     border-radius: 10px;
     letter-spacing: 1px;
+    font-family: 'Nowduke-Regular.ttf';
 }
 .opcoes li button {
     background: none;
@@ -216,11 +212,12 @@ Cores - CyberPunk
     width: 800px;
 }
 .contador h1 {
+    font-family: 'Sportify Slant.ttf';
     font-size: 60px;
     color: #6bffb9;
 }
 .contador p {
-    font-size: 25px;
+    font-size: 35px;
     color: #fff;
 }
 .imagem {
@@ -279,14 +276,346 @@ Cores - CyberPunk
     width: 500px;
     border-radius: 10px;
 }
-
+#graficos {
+    width: 80%;
+    height: 300px;
+}
 #quizContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 1400px;
     height: 80vh;
-    background: #327a59;
+    background: #15151d;
+    border-radius: 20px;
+    border: 5px solid #ad5867;
+}
+#inicarQuiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+#inicarQuiz button {
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 50px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#inicarQuiz button:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+#inicarQuiz h1 {
+    color: #ad5867;
+    font-size: 150px;
+    font-family: 'torchzilla-regular.ttf';
+    -webkit-text-stroke-color: #51be8f ;
+    -webkit-text-stroke-width: 3px;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#inicarQuiz p {
+    font-family: 'Sportify Slant.ttf';
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+    color: #6bffb9;
+}
+#pergunta1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta1 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta1 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family: 'Roboto';
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta2 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta2 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta3 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta3 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta4 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta4 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta5 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta5 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta6 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta6 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta7 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta7 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta8 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta8 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta9 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta9 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#pergunta10 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#pergunta10 button {
+    width: 250px;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #ad5867;
+    color: #210d18;
+    border: 3px solid #51be8f;
+    cursor: pointer;
+    font-family: 'Nowduke-Regular.ttf';
+}
+#pergunta10 h2 {
+    color: #fe849b;
+    font-size: 60px;
+    font-family:'Roboto' ;
+    padding: 100px;
+    padding-bottom: 0px;
+}
+#div_homem button {
+    color: #ad5867;
+    font-size: 150px;
+    font-family: 'torchzilla-regular.ttf';
+    -webkit-text-stroke-color: #51be8f ;
+    -webkit-text-stroke-width: 3px;
+    padding-top: 50px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}   
+#div_homem button:hover {
+    transform: scale(1.5);
+    transition: 0.5s ease;
+    text-shadow: 2px 2px 5px #6bffba,
+    5px 5px 70px #6bffba;
+}
+.questa {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Define 2 colunas de tamanho igual */
+    grid-template-rows: repeat(2, 1fr); /* Define 2 linhas de tamanho igual */
+    gap: 20px;
+    margin-top: 120px;
+    margin-bottom: 150px;
+    max-width: 450px;
 }
 /* cards */
 
@@ -335,7 +664,6 @@ Cores - CyberPunk
    }
    .card p {
     font-size: 18px;
-    font-family: 'Nowduke-Regular.ttf';
     color: #f2f2f2;
     letter-spacing: 2px;
    }
@@ -485,17 +813,17 @@ Cores - CyberPunk
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
-    color: #707099;
+    color: #210d18;
     font-family:'Sportify Slant.ttf';
 }
 .side-bar .content .opcao span:hover {
-    color: #fff;
+    color: #210d18;
     background: #8b8bbd;
     transition: 0.5s ease;
 }
 .side-bar .content .opcao i {
     font-size: 30px;
-    color: #707099;
+    color: #210d18;
 }
 .side-bar .logout {
     display: flex;
@@ -513,17 +841,17 @@ Cores - CyberPunk
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
-    color: #707099;
+    color: #210d18;
     font-family:'Sportify Slant.ttf';
 }
 .side-bar .logout .opcao span:hover {
-    color: #fff;
+    color: #210d18;
     background: #8b8bbd;
     transition: 0.5s ease;
 }
 .side-bar .logout .opcao i {
     font-size: 30px;
-    color: #707099;
+    color: #210d18;
 }
 
 /* analytics */
@@ -535,8 +863,133 @@ Cores - CyberPunk
     justify-content: space-around;
     width: calc(100% - 300px);
     height: 100%;
-    position: absolute;
     right: 0;
+}
+.analytics .container {
+    overflow: auto;
+}
+.analytics .container .subgenero {
+    height: 100vh;
+    border-radius: 20px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.analytics .container .subgenero h1 {
+    color: #fe849b;
+    font-size: 150px;
+    font-family: 'torchzilla-regular.ttf';
+    -webkit-text-stroke-color: #28664a;
+    -webkit-text-stroke-width: 3px;
+}
+.analytics .container .subgenero h1:hover {
+    transform: scale(1.3);
+    transition: 1s ease;
+    text-shadow: 2px 2px 5px #6bffba,
+    5px 5px 70px #6bffba;
+}
+.manga {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.subgenero {
+    height: 100vh;
+    background: 
+    linear-gradient(rgba(1, 1, 56, 0.897), rgba(1, 1, 56, 0.562)),
+    url('wp.jpg');
+}
+.ecco-jams {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 1200px;
+    padding: 100px;
+    width: 100%;
+    background: 
+    linear-gradient(#13131a, #13131a, #3d3d53, #13131a, #13131a);
+    background-size: cover;
+}
+.ecco-jams h1 { 
+    font-size: 60px;
+    color: #6bffb9;
+    font-family: 'Sportify Slant.ttf';
+}
+.ecco-jams p {
+    font-size: 35px;
+    width: 1000px;
+    color: #fff;
+}
+.future-vision {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 1200px;
+    padding: 100px;
+    width: 100%;
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.750), rgba(0, 0, 0, 0.750)),
+    url('/imagens/future.jpg');
+    background-size: cover;
+}
+.future-vision h1 {
+    font-size: 60px;
+    color: #6bffb9;
+    font-family: 'Sportify Slant.ttf';
+}
+.future-vision p {
+    font-size: 35px;
+    width: 1000px;
+    color: #fff;
+}
+.vapor-trap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 1200px;
+    padding: 100px;
+    width: 100%;
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.750), rgba(0, 0, 0, 0.750)),
+    url('/imagens/Rocco-vaporwave.co_.gif');
+    background-size: cover;
+}
+.vapor-trap h1 {
+    font-size: 60px;
+    color: #6bffb9;
+    font-family: 'Sportify Slant.ttf';
+}
+.vapor-trap p {
+    font-size: 35px;
+    width: 1000px;
+    color: #fff;
+}
+.faux-utopian {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 1200px;
+    padding: 100px;
+    width: 100%;
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.900), rgba(0, 0, 0, 0.900)),
+    url('/imagens/faux.jpg');
+    background-size: cover;
+}
+.faux-utopian h1 {
+    font-size: 60px;
+    color: #6bffb9;
+    font-family: 'Sportify Slant.ttf';
+}
+.faux-utopian p {
+    font-size: 35px;
+    width: 1000px;
+    color: #fff;
 }
 .analytics-top {
     display: flex;
@@ -585,7 +1038,7 @@ Cores - CyberPunk
 .close{
     width: 100%;
     height: 15%;
-    background: linear-gradient(to right, rgb(53, 53, 255), rgb(98, 81, 250));
+    background: linear-gradient(to right, rgb(53, 53, 255), rgb(149, 138, 255));
     display: flex;
     justify-content: space-between;
 }
