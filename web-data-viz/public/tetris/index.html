@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaporTris</title>
+
+    <!-- importei biblioteca p5 js, voltada para design e arte-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+    <script>
+
+        /* 
+        this -
+
+        Canvas - Renderizador de gráficos especializado para gerar vetores,
+        imagens, videos, neste canvas definido em setup, será desenhado o nosso
+        tetris!
+
+        Propriedades Matemáticas do canvas:
+        Eixos - (x, y) iniciados em 0 onde o X = 900 e Y = 600,
+        que geram um retangulo ou o nosso Canvas, que trabalharei
+        com pixeis nele.
+
+        Matriz: com base nos eixos (x, y) irá gerar campos como por exemplo
+        esta matriz (X = [3], Y = [3]):
+        (0,0) - (1,0) - (2,0) - (3,0) 
+        (0,1) - (1,1) - (2,1) - (3,1) 
+        (0,2) - (1,2) - (2,2) - (3,2) 
+        (0,3) - (1,3) - (2,3) - (3,3) 
+
+        */
+
+        // cria a matriz onde o tetris irá funcionar, função nativa da biblioteca p5 js,
+        // ajusta propriedades iniciais dos objetos e variaveis.
+        const borda_tabuleiro = 10;
+
+        function setup(){
+            createCanvas(900,600);
+            tabuleiro = new Tabuleiro();
+            resizeCanvas(
+                tabuleiro.largura + 2 * borda_tabuleiro, 
+                tabuleiro.altura + 2 * borda_tabuleiro
+            );
+        }
+
+        // Defino o visual da matriz do tetris, função nativa da biblioteca p5 js,
+        // serve para intruções precisas ao desenhar o canvas.
+        function draw(){
+            background("gray");
+            tabuleiro.desenhar()
+        }
+
+        // classe que irá desenhar o nosso tabuleiro
+        class Tabuleiro{
+            constructor(){
+                this.coluna = 10;
+                this.fileira = 20;
+                this.lado_celula = 25;
+                this.largura = this.coluna * this.lado_celula;
+                this.altura = this.fileira * this.lado_celula;
+                this.posicao = createVector(borda_tabuleiro, borda_tabuleiro);
+            }
+
+            /* 
+                A coordenada é uma transformaçãop no linear que possui um escalamento(multiplicação)
+                para ajustar as medidas e executa uma soma para ajustar as posições
+            */
+            coordenada(x, y) {
+                return createVector(x,y).mult(this.lado_celula).add(this.posicao)
+            }
+
+            // Aqui Ocorre o processamento Lógico do Tabuleiro
+            desenhar(){
+                for(let coluna = 0; coluna < this.coluna; coluna++) {
+                    for (let fileira = 0; fileira < this.fileira; fileira++) {
+                        let c = this.coordenada(coluna, fileira)
+                        rect(c.x, c.y, this.lado_celula)
+                    }
+                }
+            }
+            
+        }
+
+    </script>    
+</body>
+</html>
