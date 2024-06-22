@@ -1,4 +1,4 @@
-// classe que irá desenhar o nosso tabuleiro
+// classe que irá desenhar o nosso tabuleiro 21/06/2024
 class Tabuleiro{
 
     constructor(){
@@ -11,14 +11,14 @@ class Tabuleiro{
     }
 
 /* 
-    A coordenada é uma transformaçãop no linear que possui um escalamento(multiplicação)
-    para ajustar as medidas e executa uma soma para ajustar as posições
+    A coordenada é uma transformaçãop no linear que possui um escalamento(multiplicação) 21/06/2024
+    para ajustar as medidas e executa uma soma para ajustar as posições 21/06/2024
 */
     coordenada(x, y) {
         return createVector(x,y).mult(this.lado_celula).add(this.posicao)
     }
 
-    // Aqui Ocorre o processamento Lógico do Tabuleiro
+    // Aqui Ocorre o processamento Lógico do Tabuleiro 21/06/2024
     desenhar(){
         push()
         noStroke()
