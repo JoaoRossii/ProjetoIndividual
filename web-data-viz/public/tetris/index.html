@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
 </head>
 <body>
+    <script src="Tabuleiro.js"></script>
     <script>
 
         /* 
@@ -39,6 +40,7 @@
         function setup(){
             createCanvas(900,600);
             tabuleiro = new Tabuleiro();
+            tetrimino = new Tetrimino();
             resizeCanvas(
                 tabuleiro.largura + 2 * borda_tabuleiro, 
                 tabuleiro.altura + 2 * borda_tabuleiro
@@ -49,40 +51,25 @@
         // serve para intruções precisas ao desenhar o canvas.
         function draw(){
             background("gray");
-            tabuleiro.desenhar()
+            tabuleiro.desenhar();
+            tetrimino.desenhar();
         }
 
-        // classe que irá desenhar o nosso tabuleiro
-        class Tabuleiro{
+        class Tetrimino {
             constructor(){
-                this.coluna = 10;
-                this.fileira = 20;
-                this.lado_celula = 25;
-                this.largura = this.coluna * this.lado_celula;
-                this.altura = this.fileira * this.lado_celula;
-                this.posicao = createVector(borda_tabuleiro, borda_tabuleiro);
+                this.posicao = createVector(0, 0);
             }
-
-            /* 
-                A coordenada é uma transformaçãop no linear que possui um escalamento(multiplicação)
-                para ajustar as medidas e executa uma soma para ajustar as posições
+            /*
+                Esta função é responsavel pelo processamento logico de desenhar este objeto
             */
-            coordenada(x, y) {
-                return createVector(x,y).mult(this.lado_celula).add(this.posicao)
-            }
-
-            // Aqui Ocorre o processamento Lógico do Tabuleiro
             desenhar(){
-                for(let coluna = 0; coluna < this.coluna; coluna++) {
-                    for (let fileira = 0; fileira < this.fileira; fileira++) {
-                        let c = this.coordenada(coluna, fileira)
-                        rect(c.x, c.y, this.lado_celula)
-                    }
-                }
+                push();
+                fill("red");
+                let coord = tabuleiro.coordenada(this.posicao.x, this.posicao.y);
+                rect(coord.x, coord.y, tabuleiro.lado_celula);
+                pop();
             }
-            
         }
-
     </script>    
 </body>
 </html>
