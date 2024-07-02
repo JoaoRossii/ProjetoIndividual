@@ -84,6 +84,35 @@ function cadastrar(req, res) {
     }
 }
 
+
+// 02/07/2024 Criação do controller para armazenar os pontos do tetris e quem os fez.
+function pontos(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idAluno = req.params.idAluno;
+    var pontos = req.body.pontosServer;
+
+    if (pontos == undefined) {
+        res.status(400).send("Seu ra está undefined!");
+    } 
+
+        usuarioModel.pontosInserir(pontos, idAluno)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro raquear você! Erro:",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+
 function insert(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var respostasC = req.body.respostasCorretasServer;
@@ -165,5 +194,6 @@ module.exports = {
     insert,
     mapear,
     dashboardQuiz,
-    dashboardQuizAtual
+    dashboardQuizAtual,
+    pontos
 }

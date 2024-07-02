@@ -8,6 +8,11 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+// 02/07/2024 criação da rota para envio dos pontos e aluno que fez os pontos 
+router.post("/pontos/:idAluno", function (req, res) {
+    usuarioController.pontos(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });

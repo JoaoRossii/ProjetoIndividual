@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaporTris</title>
+
+    <!-- importei biblioteca p5 js, voltada para design e arte-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+    <style>
+        body{
+            background: steelblue;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.4));
+        }
+    </style>
+    
+    <div id="pontosTeste">
+
+    </div>
+
+    <script src="Tabuleiro.js"></script>
+    <script src="Tetrimino.js"></script>
+    <script src="../js/sessao.js"></script>
+    <script>
+        // criação das rotas e das variaveis para envio dos pontos e aluno que jogou o tetris;
+
+
+        /* 21/06/2024
+
+        Dificuldade de peças
+        */
+
+        
+
+        /*
+        this -
+
+        Canvas - Renderizador de gráficos especializado para gerar vetores,
+        imagens, videos, neste canvas definido em setup, será desenhado o nosso
+        tetris!
+
+        Propriedades Matemáticas do canvas:
+        Eixos - (x, y) iniciados em 0 onde o X = 900 e Y = 600,
+        que geram um retangulo ou o nosso Canvas, que trabalharei
+        com pixeis nele.
+
+        Matriz: com base nos eixos (x, y) irá gerar campos como por exemplo
+        esta matriz (X = [3], Y = [3]):
+        (0,0) - (1,0) - (2,0) - (3,0) 
+        (0,1) - (1,1) - (2,1) - (3,1) 
+        (0,2) - (1,2) - (2,2) - (3,2) 
+        (0,3) - (1,3) - (2,3) - (3,3) 
+
+        */
+
+        // cria a matriz onde o tetris irá funcionar, função nativa da biblioteca p5 js, 21/06/2024
+        // ajusta propriedades iniciais dos objetos e variaveis. 21/06/2024
+
+        const borda_tabuleiro = 10;
+        let regulador_velocidade_teclas = 0;
+        let regulador_de_queda = 0;
+        let linhas_apagadas = 0;
+        let pontosFinais = 0;                           
+        
+        setInterval(() => {
+            if (millis() - regulador_velocidade_teclas < 50) {
+                return
+            }
+            tetrimino.moverBaixo();
+        }, 500);
+
+        function setup(){
+            createCanvas(900,600);
+            tabuleiro = new Tabuleiro();
+            criarBaseTetriminos();
+            tetrimino = new Tetrimino();
+            resizeCanvas(
+                tabuleiro.largura + 2 * borda_tabuleiro, 
+                tabuleiro.altura + 2 * borda_tabuleiro + tabuleiro.lado_celula
+            );
+        }
+
+        // Defino o visual da matriz do tetris, função nativa da biblioteca p5 js, 21/06/2024
+        // serve para intruções precisas ao desenhar o canvas. 21/06/2024 
+        function draw(){
+            clear()
+            pontuacao();
+            tabuleiro.desenhar();
+            tetrimino.desenhar();
+            keyEventsTetris();
+        }   
+
+        function pontuacao() {
+            push();
+            textSize(20)
+            strokeWeight(3)
+            stroke("black")
+            fill("white")
+            text(
+                "Pontos: " + linhas_apagadas,
+                tabuleiro.posicao.x,
+                tabuleiro.posicao.y - tabuleiro.lado_celula / 2
+            );
+            pop();
+            pontosFinais = linhas_apagadas;
+        }
+        
+        function keyEventsTetris() {
+            if (millis() - regulador_velocidade_teclas < 170) {
+                return
+            }
+            regulador_velocidade_teclas = millis();
+
+            if(keyIsDown(RIGHT_ARROW)) {
+                tetrimino.moverDireita();
+                regulador_de_queda = millis();
+            }
+            if(keyIsDown(LEFT_ARROW)) {
+                tetrimino.moverEsquerda();
+                regulador_de_queda = millis();
+            }
+            if(keyIsDown(DOWN_ARROW)) {
+                tetrimino.moverBaixo();
+                regulador_de_queda = millis();
+            }
+            if(keyIsDown(UP_ARROW)) {
+                tetrimino.girar();
+                regulador_de_queda = millis();
+            }
+            if(keyIsDown(32)) {
+                tetrimino.porNoFundo();
+                regulador_de_queda = millis();
+            }
+        }
+
+       
+    </script>
+</body>
+</html>
