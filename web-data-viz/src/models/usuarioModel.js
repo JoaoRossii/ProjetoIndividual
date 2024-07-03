@@ -10,13 +10,14 @@ function autenticar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(ra, nome, email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", ra, nome, email, senha);
+function cadastrar(ra, nome, email, senha, conhece) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", ra, nome, email, senha, conhece);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
+    // 02/07/2024 correção da inserção dos dados se conhece vaporwave
     var instrucaoSql = `
-        INSERT INTO usuario (ra, nome, email, senha) VALUES ('${ra}', '${nome}', '${email}', '${senha}');
+        INSERT INTO usuario (ra, nome, email, senha, vaporwave) VALUES ('${ra}', '${nome}', '${email}', '${senha}', '${conhece}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

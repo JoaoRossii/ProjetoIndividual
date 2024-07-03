@@ -93,6 +93,7 @@
         var email = ipt_email.value; 
         var senha = ipt_senha.value; 
         var cSenha = ipt_cSenha.value;
+        var conhece = slc_vapor.value;
         
       
       if (
@@ -100,7 +101,8 @@
         nome == "" ||
         email == "" ||
         senha == "" ||
-        cSenha == "" 
+        cSenha == "" ||
+        conhece == ""
       ) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
@@ -120,10 +122,12 @@
         body: JSON.stringify({
           // crie um atributo que recebe o valor recuperado aqui
           // Agora vá para o arquivo routes/usuario.js
+          // 02/07/2024 correção da inserção dos dados se conhece vaporwave
           raServer: ra,
           nomeServer: nome,
           emailServer: email,
-          senhaServer: senha
+          senhaServer: senha,
+          conheceServer: conhece
         }),
       })
         .then(function (resposta) {
