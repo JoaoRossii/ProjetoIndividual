@@ -1,38 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VaporTris</title>
-
-    <!-- importei biblioteca p5 js, voltada para design e arte-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
-</head>
-<body>
-    <style>
-        body{
-            background: steelblue;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        canvas {
-            filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.4));
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="logo.png" type="image/x-icon">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <title>VaporWave</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- importei biblioteca p5 js, voltada para design e arte-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+        <style>
+        
+            body{
+                background: steelblue;
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
     
-    <div id="pontosTeste">
+            canvas {
+                filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.4));
+            }
+        </style>
+    </head>
+<body>
+    <div class="backgrau">
+        <div class="side-bar">
+            <div class="logo">
+                <a href="plat.html"><img src="logo.png" alt="logo"></a>
+                <h3>Bem Vindo</h3>
+            </div>
+            <div class="content">
+                <div class="opcao"><i class='bx bxs-objects-vertical-bottom' ></i><a href="plat.html" style="text-decoration: none;"><span>Métricas</span></a></div>
+                <div class="opcao"><i class='bx bx-notepad' ></i><a href="quiz.html" style="text-decoration: none;"><span>Quiz</span></a></div>
+                <div class="opcao"><i class='bx bxs-magic-wand' ></i><a href="subgeneros.html" style="text-decoration: none;"><span>Subgeneros</span></a></div>
+                <div class="opcao"><i class='bx bx-star'></i><a href="tetris.html" style="text-decoration: none;"><span>tetris</span></a></div>
+            </div>
+            <div class="logout">
+                <div class="opcao"><i class='bx bx-log-out'></i><a href="../../index.html" style="text-decoration: none;"><span href="">Sair</span></a></div>
+            </div>
+        </div>
+        <!-- div da pontuação do Tetris -->
+        <div class="analytics-tetris" >
+            <div class="tetris-top" id="TetrisDoJoao"></div>
+            <div class="tetris-bottom">
+                <div class="rankingTetris">
+                    <div class="tituloRank">
+                        <h1>Melhores Pontuações</h1>
+                    </div>
 
+                    <div class="pontosJogadores" id="rankTetris">
+                        <div class="rankeados" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="Tabuleiro.js"></script>
     <script src="Tetrimino.js"></script>
     <script src="../js/sessao.js"></script>
     <script>
+
+        // 05/07/2024 Ranking do tetris
+
+        rankTetris();
+
+        
+        function rankTetris() {
+
+            fetch(`/usuarios/tetris`,{cache: 'no-store'}).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        rankearTetris(resposta);
+                    });
+                } else {
+                    console.error('Erro na requisição')
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na requisição dos dados para o grafico: ${error.message}`);
+                });
+        }
+
+        function rankearTetris(resposta) {
+            let rankLabel = document.getElementById('rankTetris');
+
+            let nome = resposta.nome;
+
+            console.log(nome);
+            console.log(resposta.pontos);
+
+            for (i = 0; i < resposta.length; i++) {
+                let rankeado = resposta[i];
+                rankLabel.innerHTML += `<div class="rankeados" ><span>${i + 1}</span> <p>${rankeado.nome}</p> <span> ${rankeado.pontos}</span>`;
+            }
+        }
         // criação das rotas e das variaveis para envio dos pontos e aluno que jogou o tetris;
 
 
@@ -81,7 +153,8 @@
         }, 500);
 
         function setup(){
-            createCanvas(900,600);
+            let canvas = createCanvas(900,600);
+            canvas.parent('TetrisDoJoao');
             tabuleiro = new Tabuleiro();
             criarBaseTetriminos();
             tetrimino = new Tetrimino();
@@ -143,7 +216,6 @@
                 regulador_de_queda = millis();
             }
         }
-
        
     </script>
 </body>

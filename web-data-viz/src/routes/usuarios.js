@@ -29,6 +29,11 @@ router.get("/dashboardQuiz", function (req, res) {
     usuarioController.dashboardQuiz(req, res);
 });
 
+// 05/07/2024 - Rota do rank do Tetris
+router.get("/tetris", function (req, res) {
+    usuarioController.tetris(req, res);
+});
+
 router.get("/dashboardQuizAtual/:idAluno", function (req, res) {
     usuarioController.dashboardQuizAtual(req, res);
 });

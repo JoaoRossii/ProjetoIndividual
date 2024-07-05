@@ -73,8 +73,69 @@ Cores - CyberPunk
 #10170f
 #d7e036
 
-*/
+/* Tetris */
 
+canvas {
+    transform: scale(1.3);
+}
+
+.analytics-tetris {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: calc(100% - 300px);
+    height: 100%;
+    right: 0;
+}
+
+.tetris-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.tetris-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.rankingTetris {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    background-color: #291418;
+    width: 500px;
+    height: 600px;
+}
+
+.tituloRank {
+    padding: 20px;
+}
+.tituloRank h1{
+    color: #6bffba;
+    font-size: 45px;
+}
+
+.pontosJogadores {
+    display: flex;
+    flex-direction: column;
+}
+.pontosJogadores span{
+    color: #8b8bbd;
+    padding: 5px;
+    font-size: 35px;
+}
+.pontosJogadores p {
+    color: #fff;
+    padding: 5px;
+    font-size: 35px;
+}
+
+.rankeados {
+    display: flex;
+    flex-direction: row;
+}
 /* BackGround */
 .backgrau {
     width: 100%;

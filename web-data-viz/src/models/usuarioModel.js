@@ -24,9 +24,6 @@ function cadastrar(ra, nome, email, senha, conhece) {
 }
 
 /* 02/07/2024 - model de inserir pontos no banco
-
-
-
 */
 function pontosInserir(pontos, idAluno) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",pontos, idAluno);
@@ -80,6 +77,18 @@ function dashboardQuizAtual(idAluno) {
     return database.executar(instrucaoSql);
 }
 
+// 05/07/2024 - Model rank do tetris
+function tetris() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function dashboardQuizAtual():", );
+    
+    var instrucaoSql = `
+       SELECT nome, pontos FROM (SELECT nome, pontos FROM tetris JOIN usuario ON ra = fkUsuario  ORDER BY pontos DESC LIMIT 10) AS Top10 ORDER BY pontos ASC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -87,5 +96,6 @@ module.exports = {
     mapear,
     dashboardQuiz,
     dashboardQuizAtual,
-    pontosInserir
+    pontosInserir,
+    tetris
 };

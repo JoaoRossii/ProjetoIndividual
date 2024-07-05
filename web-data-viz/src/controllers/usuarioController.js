@@ -47,6 +47,26 @@ function autenticar(req, res) {
 
 }
 
+// 05/07/2024 - Processamento de dados do Tetris
+
+function tetris(req, res) {
+    usuarioModel.tetris()
+      .then(
+        function (resultado) {
+          res.json(resultado);
+        }
+      ).catch(
+        function (erro) {
+          console.log(erro);
+          console.log(
+            "\nErro ao rankear pontuações! Erro:",
+            erro.sqlMessage
+          );
+          res.status(500).json(erro.sqlMessage);
+        }
+      )
+  }
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var ra = req.body.raServer;
@@ -96,7 +116,7 @@ function pontos(req, res) {
     var pontos = req.body.pontosServer;
 
     if (pontos == undefined) {
-        res.status(400).send("Seu ra está undefined!");
+        res.status(400).send("Sem potuação");
     } 
 
         usuarioModel.pontosInserir(pontos, idAluno)
@@ -199,5 +219,6 @@ module.exports = {
     mapear,
     dashboardQuiz,
     dashboardQuizAtual,
-    pontos
+    pontos,
+    tetris
 }

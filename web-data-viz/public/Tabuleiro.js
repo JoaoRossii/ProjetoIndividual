@@ -25,8 +25,6 @@ class Tabuleiro{
         }
     }
 
-
-
     set tetriminosArmazenados(tetrimino) { //armazenarmino
         for (const pmino of tetrimino.mapaTabuleiro) {
             if (pmino.y < 0) {  
@@ -55,9 +53,7 @@ class Tabuleiro{
                     })
                     .catch(error => {
                         console.error('Erro ao Raquear seus Pontos', error);
-                    });
-
-                console.log(pontos);    
+                    });  
 
                 // GAME OVER
                 tabuleiro = new Tabuleiro()
