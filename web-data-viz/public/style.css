@@ -105,15 +105,16 @@ canvas {
     align-items: center;
     justify-content: top;
     background-color: #291418;
-    width: 500px;
-    height: 600px;
+    width: 550px;
+    height: 700px;
+    border-radius: 10px;
 }
 
 .tituloRank {
     padding: 20px;
 }
 .tituloRank h1{
-    color: #6bffba;
+    color: #8b8bbd;
     font-size: 45px;
 }
 
@@ -135,6 +136,9 @@ canvas {
 .rankeados {
     display: flex;
     flex-direction: row;
+}
+.rankeados .pontos {
+    color: #fe849b;
 }
 /* BackGround */
 .backgrau {

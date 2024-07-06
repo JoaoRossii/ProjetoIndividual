@@ -102,7 +102,7 @@
 
             for (i = 0; i < resposta.length; i++) {
                 let rankeado = resposta[i];
-                rankLabel.innerHTML += `<div class="rankeados" ><span>${i + 1}</span> <p>${rankeado.nome}</p> <span> ${rankeado.pontos}</span>`;
+                rankLabel.innerHTML += `<div class="rankeados" ><span>${i + 1}</span> <p>${rankeado.nome}</p> <span class="pontos"> ${rankeado.pontos} Pontos</span>`;
             }
         }
         // criação das rotas e das variaveis para envio dos pontos e aluno que jogou o tetris;
