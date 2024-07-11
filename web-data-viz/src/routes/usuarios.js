@@ -38,4 +38,9 @@ router.get("/dashboardQuizAtual/:idAluno", function (req, res) {
     usuarioController.dashboardQuizAtual(req, res);
 });
 
+// 10/07/2024 - Rota de Gráfico Percentual
+router.get("/nossosUsuarios", function (req, res) {
+    usuarioController.nossosUsuarios(req, res);
+});
+
 module.exports = router;

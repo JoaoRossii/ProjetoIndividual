@@ -212,6 +212,26 @@ function dashboardQuizAtual(req, res) {
     });
 }
 
+// 10/07/2024 - Controller do percentual de usuarios
+function nossosUsuarios (req,res) {
+    usuarioModel.nossosUsuarios()
+      .then(
+        function (resultado) {
+          res.json(resultado);
+        }
+      ).catch(
+        function (erro) {
+          console.log(erro);
+          console.log(
+            "\nErro ao rankear pontuações! Erro:",
+            erro.sqlMessage
+          );
+          res.status(500).json(erro.sqlMessage);
+        }
+      )
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -220,5 +240,6 @@ module.exports = {
     dashboardQuiz,
     dashboardQuizAtual,
     pontos,
-    tetris
+    tetris,
+    nossosUsuarios
 }

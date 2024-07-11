@@ -11,6 +11,8 @@
         <title>VaporWave</title>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../js/sessao.js"></script>
+        <style>
+        </style>
     </head>
 <body>
     <div class="backgrau">
@@ -88,17 +90,31 @@
             </div>
             <div class="analytics-bottom">
 
+                <!-- Gráfico de Acertos e Erros -->
                 <div class="card-wave">
                     <div class="close">
                         <div class="fatal">
                             <h2>Gráfico de Respostas</h2>
                         </div>
-                        <div class="coco">
-                            <button>X</button>
-                        </div>
                     </div>
                     <div class="contento">
                        <div id="graficos"></div>
+                    </div>
+                    <div class="ok">
+                    </div>
+                </div>
+
+                <!-- Gráfico de Pizza Porcentagem% -->
+                <div class="card-wave">
+                    <div class="close">
+                        <div class="fatal">
+                            <h2>Nossos Usuários</h2>
+                        </div>
+                    </div>
+                    <div class="contento">
+                       <div id="graficos">
+                        <canvas id="Porcentagem" style="position: relative;"></canvas>
+                       </div>
                     </div>
                     <div class="ok">
                     </div>
@@ -112,17 +128,66 @@
 
 <script>
 
+    // função de fetch para requisitar e receber e plotar grtafico de pizza com metrica percentual.
+
+    function nossosUsuarios() {
+        fetch('/usuarios/nossosUsuarios')
+            .then(resposta => {
+                if (!resposta.ok) {
+                    throw new Error('Erro na requisição de Dados');
+                }
+                return resposta.json();
+            })
+            .then (resposta => {
+                if (resposta !== undefined) {
+                    GerarUsuarios(resposta);
+                } 
+            })
+            .catch(error => {
+                console.error("Erro ao atulizar o gráfico:", error);
+            })
+    }
+
+    function GerarUsuarios(resposta) {
+        let sim = "";
+        let nao = "";
+        let total = Number(resposta.length);
+        let porcentagem = 100 / total;
+
+        for (i = 0; i < resposta.length; i++) {
+            
+            if(resposta[i].vaporwave == "Sim") {
+                sim ++;
+
+            } else {
+                nao ++;
+
+            } 
+        }
+        console.log(sim);
+        console.log(nao);
+
+        let Conhece = sim * porcentagem;
+        let NaoConhece = nao * porcentagem;
+
+        const data = [sim, nao];
+        const leibol = [`${Conhece + "%"} Já Conheciam`,`${NaoConhece + "%"} Não Conheciam`];
+        Porcentagem.data.datasets[0].data = data;
+        Porcentagem.data.labels = leibol;
+        Porcentagem.update();
+    }
+        
+    nossosUsuarios();
+
     let proximaAtualizacao;
 
     window.onload = graficosQuiz();
 
     function graficosQuiz() {
         document.getElementById("graficos").innerHTML += `
-        <div id="grafico">
             <div class="graph">
                 <canvas id="myChartCanvas"></canvas>
             </div>
-        </div>
     `;
 
         obterDadosGrafico();
@@ -204,4 +269,32 @@
         config
     );
 }
+
+    // 10/07/2024 - Configuração do Gráfico de Porcentagem
+
+    const ctx = document.getElementById('Porcentagem');
+
+    const Porcentagem = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [``, ``],
+            datasets: [{
+                label: 'Usuarios',
+                backgroundColor: [ '#bf3f55', '#fc7687'],
+                borderColor: '#0000003a',
+                data: [0, 0],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#000',
+                    },
+                }
+            }
+        }
+    });
+
 </script>
