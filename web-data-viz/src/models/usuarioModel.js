@@ -81,8 +81,26 @@ function dashboardQuizAtual(idAluno) {
 function tetris() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function dashboardQuizAtual():", );
     
+    // 10/07/2024 - Alteração na função de raking:
+    // Implementação da função sql ROW_NUMBER que serve para atribuir um número de linha a cada pontuação
+    /* A cláusula OVER define a janela sobre a qual a função de janela será aplicada. 
+    Ela especifica como os dados devem ser particionados (divididos em grupos) e ordenados antes de a função ser aplicada.
+    A cláusula PARTITION BY dentro de OVER divide o conjunto de resultados em partições para a função de janela operar. 
+    Cada partição é tratada de forma independente pela função de janela.
+    */
+
     var instrucaoSql = `
-       SELECT nome, pontos FROM (SELECT nome, pontos FROM tetris JOIN usuario ON ra = fkUsuario  ORDER BY pontos DESC LIMIT 10) AS Top10 ORDER BY pontos ASC;
+       SELECT nome, pontos
+FROM (
+    SELECT nome, pontos,
+           ROW_NUMBER() OVER (PARTITION BY nome ORDER BY pontos DESC) AS rn
+    FROM tetris
+    JOIN usuario ON ra = fkUsuario
+    ) AS ranked
+    WHERE rn = 1
+    ORDER BY pontos ASC
+    LIMIT 10;
+
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
