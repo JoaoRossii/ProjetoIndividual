@@ -12,6 +12,11 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../js/sessao.js"></script>
         <style>
+            #Porcentagem {
+                position: relative;
+                max-width: 300px;
+                max-height: 300px;
+            }
         </style>
     </head>
 <body>
@@ -72,7 +77,7 @@
                 <div class="card-wave">
                     <div class="close">
                         <div class="fatal">
-                            <h2>Subgeneros</h2>
+                            <h2>Tetris</h2>
                         </div>
                         <div class="coco">
                             <button>X</button>
@@ -80,10 +85,10 @@
                     </div>
                     <div class="contento">
                         <img src="/icons_32x32/this_computer.png" alt="">
-                        <p>Venha em nossa pagina de subgeneros, lá você poderá apreciar o vaporwave em sua plena essência !</p>
+                        <p>Se Divirta e tenta bater o recorde dos outros jogadores no nosso tetris, aproveite!</p>
                     </div>
                     <div class="ok">
-                        <button class="buttu-ok"><a href="subgeneros.html" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; font-size: 13px; color: black;">Ir</a></button>
+                        <button class="buttu-ok"><a href="tetris.html" style="text-decoration: none; font-family: 'Times New Roman', Times, serif; font-size: 13px; color: black;">Ir</a></button>
                     </div>
                 </div>
 
@@ -105,7 +110,7 @@
                 </div>
 
                 <!-- Gráfico de Pizza Porcentagem% -->
-                <div class="card-wave">
+                <div class="card-wave pct"> 
                     <div class="close">
                         <div class="fatal">
                             <h2>Nossos Usuários</h2>
@@ -113,7 +118,7 @@
                     </div>
                     <div class="contento">
                        <div id="graficos">
-                        <canvas id="Porcentagem" style="position: relative;"></canvas>
+                        <canvas id="Porcentagem"></canvas>
                        </div>
                     </div>
                     <div class="ok">
