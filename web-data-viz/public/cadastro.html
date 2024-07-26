@@ -23,48 +23,57 @@
         </div>
 
         <div class="opcoes" id="nargas">
-            <div class="">
-                <ul>
-                    <li> <a href="index.html">Inicio</a> </li>
-                    <li> <a href="login.html">Entrar</a> </li>
-                    <li> <a href="cadastro.html">Cadastrar</a> </li>
-                </ul>
-            </div>
-        </div>
+          <div class="">
+              <ul>
+                  <button class="button">
+                      <a href="index.html">Inicio</a> 
+                  </button> 
+                  <button class="button">
+                      <a href="cadastro.html">Acesse Já!</a> 
+                  </button> 
+              </ul>
+          </div>
+      </div>
 
 
-
+<!-- novo formulariuo de cadastro -->
     </div>
     <div class="container inicio">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-              <span id="mensagem_erro"></span>
-            </div>
-          </div>
-        <div class="cadastro">
-            <div class="conteudo">
-                <h1>Cadastro</h1>
-
-                <h3>RA</h3>
-                <input type="text" id="ipt_ra" placeholder="Digite seu RA">
-                <h3>Nome</h3>
-                <input type="text" id="ipt_nome" placeholder="Digite seu nome">
-                <h3>Email</h3>
-                <input type="text" id="ipt_email" placeholder="Digite seu email">
-                <h3>Senha</h3>
-                <input type="password" id="ipt_senha" placeholder="Digite sua senha">
-                <h3>Confirma Senha</h3>
-                <input type="password" id="ipt_cSenha" placeholder="Confirme sua senha">
-                <h3>Conhece VaporWave?</h3>
-                <select name="selectVapor" id="slc_vapor">
-                    <option value="Sim">Sim</option>
-                    <option value="Nao">Não</option>
-                </select>
-                <button onclick="cadastrar()">Cadastrar</button>
-
-                <div id="div_erros_login"></div>
-            </div>
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
         </div>
+      </div>
+      <div class="wrapper">
+        <div class="card-switch">
+            <label class="switch">
+                <input type="checkbox" class="toggle">
+                <span class="slider"></span>
+                <span class="card-side"></span>
+                <div class="flip-card__inner">
+                  <div class="flip-card__front">
+                      <div class="title">Log in</div>
+                      <form class="flip-card__form" action="">
+                        <input class="flip-card__input" name="email" id="ipt_email" placeholder="Digite seu email" type="text">
+                        <input class="flip-card__input" name="password" id="ipt_senhal" placeholder="Digite sua senha" type="password">
+                        <button class="flip-card__btn" onclick="entrar()">Entrar</button>
+                      </form>
+                  </div>
+                  <div class="flip-card__back">
+                      <div class="title">Cadastro</div>
+                      <form class="flip-card__form" action="">
+                        <input class="flip-card__input" id="ipt_ra" placeholder="Digite seu RA" type="name">
+                        <input class="flip-card__input" id="ipt_nome" placeholder="Digite seu nome" type="name">
+                        <input class="flip-card__input" name="email" id="ipt_emailc" placeholder="Digite seu email" type="email">
+                        <input class="flip-card__input" name="password" id="ipt_senha" placeholder="Digite sua senha" type="password">
+                        <input class="flip-card__input" name="password" id="ipt_cSenha" placeholder="Confirme sua senha" type="password">
+                        <button class="flip-card__btn" onclick="cadastrar()">Cadastrar</button>
+                      </form>
+                  </div>
+                </div>
+            </label>
+        </div>   
+    </div>
     </div>
     <div class="container footer">
       <h3>VaporWave João Rossi - 1 CCO</h3>
@@ -84,13 +93,77 @@
 
 <script src="main.js"></script>
 <script>
+    
+    function entrar() {
+
+var emailVar = ipt_email.value;
+var senhaVar = ipt_senhal.value;
+
+if (emailVar == "" || senhaVar == "") {
+    cardErro.style.display = "block"
+    mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+    return false;
+}
+else {
+    setInterval(sumirMensagem, 5000)
+}
+
+console.log("FORM LOGIN: ", emailVar);
+console.log("FORM SENHA: ", senhaVar);
+
+fetch("/usuarios/autenticar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    })
+}).then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
+
+    if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.ra;
+
+                window.location = "plat.html";
+
+        });
+
+    } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+            console.error(texto);
+        });
+    }
+
+}).catch(function (erro) {
+    console.log(erro);
+})
+
+return false;
+}
+
+function sumirMensagem() {
+cardErro.style.display = "none"
+}
+
     function cadastrar() {
         
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var ra = ipt_ra.value; 
         var nome = ipt_nome.value; 
-        var email = ipt_email.value; 
+        var email = ipt_emailc.value; 
         var senha = ipt_senha.value; 
         var cSenha = ipt_cSenha.value;
         var conhece = slc_vapor.value;
@@ -140,7 +213,7 @@
               "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
   
             setTimeout(() => {
-              window.location = "login.html";
+              window.location = "cadastro.html";
             }, "2000");
   
             limparFormulario();

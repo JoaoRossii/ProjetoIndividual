@@ -153,7 +153,7 @@ Cores - CyberPunk
 .navbar{
     width: 100%;
     height: 80px;
-    background: #fe849b;
+    background: rgb(120 19 107 / 78%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -246,7 +246,7 @@ Cores - CyberPunk
     height: 100vh;
 }
 .carde {
-    background: #0c0607;
+    background: #050205;
     z-index: -100;
     display: flex;
     flex-direction: column;
@@ -297,7 +297,7 @@ Cores - CyberPunk
     height: 750px;
     width: 100%;
     background: 
-    linear-gradient(rgba(0, 85, 57, 0.801), rgba(71, 0, 62, 0.781)),
+    linear-gradient(#050205, rgba(71, 0, 62, 0.781)),
     url('/imagens/laser.jpg');
 }
 .footer {
@@ -308,7 +308,7 @@ Cores - CyberPunk
     align-items: center;
     height: 400px;
     width: 100%;
-    background: #fe849b;
+    background: rgb(120 19 107 / 78%);
 }
 .footer h3 {
     color: #210d18;
@@ -718,7 +718,7 @@ Cores - CyberPunk
     width: 350px;
     height: 500px;
     background-color: #1a1a1a;
-    border-radius:;
+    border-radius: 5px;
     transition: all .2s;
     display: flex;
     flex-direction: column;
@@ -746,13 +746,14 @@ Cores - CyberPunk
    }
 
 .inicio h1 {
-    color: #fe849b;
+    color: rgb(120 19 107 / 78%);
     font-size: 150px;
     font-family: 'torchzilla-regular.ttf';
     -webkit-text-stroke-color: #327a59 ;
     -webkit-text-stroke-width: 3px;
 }
 .inicio h1:hover {
+    cursor: pointer;
     transform: scale(1.3);
     transition: 1s ease;
     text-shadow: 2px 2px 5px #6bffba,
@@ -1187,6 +1188,238 @@ Cores - CyberPunk
     background: #bebebe;
     cursor: pointer;
 }
+
+/* css dos novos botões implementados  25/07/2024 */
+.button {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: #44a176;
+    border: 2px solid #44a176;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  
+  .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: #44a176;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .button:hover::before {
+    scale: 3;
+  }
+  
+  .button:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px #327a59;
+  }
+  
+  .button:active {
+    scale: 1;
+  }
+
+  /* css do formulario de cadastro novo 25/07/2024 */
+  /* switch card */
+  .switch {
+    transform: translateY(-200px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 50px;
+    height: 20px;
+  }
+  
+  .card-side::before {
+    position: absolute;
+    content: 'Log in';
+    left: -70px;
+    top: 0;
+    width: 100px;
+    text-decoration: underline;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .card-side::after {
+    position: absolute;
+    content: 'Cadastro';
+    left: 70px;
+    top: 0;
+    width: 100px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2px solid #44a176;
+    box-shadow: 4px 4px #317454;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-colorcolor);
+    transition: 0.3s;
+  }
+  
+  .slider:before {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border: 2px solid #44a176;
+    border-radius: 5px;
+    left: -2px;
+    bottom: 2px;
+    background-color: #fff;
+    box-shadow: 0 3px 0 #44a176;
+    transition: 0.3s;
+  }
+  
+  .toggle:checked + .slider {
+    background-color: rgb(120 19 107 / 78%);;
+  }
+  
+  .toggle:checked + .slider:before {
+    transform: translateX(30px);
+  }
+  
+  .toggle:checked ~ .card-side:before {
+    text-decoration: none;
+  }
+  
+  .toggle:checked ~ .card-side:after {
+    text-decoration: underline;
+  }
+  
+  /* card */ 
+  
+  .flip-card__inner {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    background-color: transparent;
+    perspective: 1000px;
+      /* width: 100%;
+      height: 100%; */
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .toggle:checked ~ .flip-card__inner {
+    transform: rotateY(180deg);
+  }
+  
+  .toggle:checked ~ .flip-card__front {
+    box-shadow: none;
+  }
+  
+  .flip-card__front, .flip-card__back {
+    padding: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: rgb(149 70 139);
+    gap: 20px;
+    border-radius: 5px;
+    border: 2px solid #44a176;
+    box-shadow: 4px 4px #317454;
+  }
+  
+  .flip-card__back {
+    width: 100%;
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .title {
+    margin: 20px 0 20px 0;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .flip-card__input {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+  }
+  
+  .flip-card__input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+  }
+  
+  .flip-card__input:focus {
+    border: 2px solid var(--input-focus);
+  }
+  
+  .flip-card__btn:active, .button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+  }
+  
+  .flip-card__btn {
+    margin: 20px 0 20px 0;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+  } 
 
 @media (max-width: 920px) {
     .modo {
