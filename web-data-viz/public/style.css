@@ -1235,6 +1235,18 @@ Cores - CyberPunk
 
   /* css do formulario de cadastro novo 25/07/2024 */
   /* switch card */
+.wrapper {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --bg-color-alt: #666;
+  --main-color: #323232;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+}
+
   .switch {
     transform: translateY(-200px);
     position: relative;
