@@ -100,18 +100,19 @@ Cores - CyberPunk
     flex-direction: column;
     align-items: center;
     justify-content: top;
-    background-color: #291418;
-    width: 550px;
-    height: 700px;
     border-radius: 10px;
 }
 
 .tituloRank {
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .tituloRank h1{
-    color: #8b8bbd;
-    font-size: 45px;
+    font-family: 'torchzilla-regular.ttf';
+    color: #fff;
+    font-size: 65px;
 }
 
 .pontosJogadores {
@@ -128,20 +129,44 @@ Cores - CyberPunk
     padding: 5px;
     font-size: 35px;
 }
-
+.organizar-rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
 .rankeados {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+.rankeados .indice {
+    color: #44a176;
+    font-size: 30px;
+    font-family: 'torchzilla-regular.ttf';
+    margin-right: 20px;
+}
+.rankeados p {
+    font-size: 25px;
+    font-family: 'Nowduke-Regular.ttf';
+    padding-bottom: 10px;
 }
 .rankeados .pontos {
-    color: #fe849b;
+    color: #44a176;
+    font-size: 30px;
+    font-family: 'torchzilla-regular.ttf';
+    margin-left: 20px;
+    display: flex;
 }
 /* BackGround */
 .backgrau {
     width: 100%;
     height: 100vh;
     background: 
-    linear-gradient(rgba(1, 1, 56, 0.897), rgba(1, 1, 56, 0.562)),
+    linear-gradient(rgba(0, 0, 20, 0.801), rgba(0, 0, 20, 0.801)),
     url('wp.jpg');
     background-size: cover;
     display: flex;
@@ -356,7 +381,7 @@ Cores - CyberPunk
     height: 80vh;
     background: #15151d;
     border-radius: 20px;
-    border: 5px solid #ad5867;
+    border: 5px solid rgb(77, 36, 71);
 }
 #inicarQuiz {
     display: flex;
@@ -373,8 +398,8 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
@@ -384,7 +409,7 @@ Cores - CyberPunk
     transition: 0.5s ease;
 }
 #inicarQuiz h1 {
-    color: #ad5867;
+    color: rgb(77, 36, 71);
     font-size: 150px;
     font-family: 'torchzilla-regular.ttf';
     -webkit-text-stroke-color: #51be8f ;
@@ -412,14 +437,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta1 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family: 'Roboto';
     padding: 100px;
@@ -438,14 +463,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta2 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -464,14 +489,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta3 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -490,14 +515,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta4 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -516,14 +541,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta5 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -542,14 +567,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta6 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -568,14 +593,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta7 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -594,14 +619,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta8 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -620,14 +645,14 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta9 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
@@ -646,21 +671,21 @@ Cores - CyberPunk
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #ad5867;
-    color: #210d18;
+    background-color: rgb(77, 36, 71);
+    color: #51be8f ;
     border: 3px solid #51be8f;
     cursor: pointer;
     font-family: 'Nowduke-Regular.ttf';
 }
 #pergunta10 h2 {
-    color: #fe849b;
+    color: #51be8f;
     font-size: 60px;
     font-family:'Roboto' ;
     padding: 100px;
     padding-bottom: 0px;
 }
 #div_homem button {
-    color: #ad5867;
+    color: rgb(77, 36, 71);
     font-size: 150px;
     font-family: 'torchzilla-regular.ttf';
     -webkit-text-stroke-color: #51be8f ;
@@ -731,9 +756,9 @@ Cores - CyberPunk
     font-family: 'torchzilla-regular.ttf';
    }
    .card p {
-    font-size: 18px;
+    font-size: 25px;
     color: #f2f2f2;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
    }
    
    .card2:hover {
@@ -833,7 +858,7 @@ Cores - CyberPunk
 .side-bar{
     width: 300px;
     height: 100vh;
-    background: #fe849b;
+    background: rgb(149 70 139);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     display: flex;
@@ -861,20 +886,22 @@ Cores - CyberPunk
     font-size: 45px;
 }
 .side-bar .logo h3:hover {
-    text-shadow: 2px 2px 5px #8b8bbd,
-    5px 5px 70px #8b8bbd;
+    text-shadow: 2px 2px 5px #44a176,
+    5px 5px 70px #44a176;
     transform: scale(1.1);
     transition: 1s ease;
 }
 .side-bar .content {
     display: flex;
     flex-direction: column;
+    align-items: left;
     justify-content: space-evenly;
     padding: 10px;
     height: 400px;
 }
 .side-bar .content .opcao {
     display: flex;
+    align-items: center;
     flex-direction: row;
     cursor: pointer;
 }
@@ -887,12 +914,12 @@ Cores - CyberPunk
 }
 .side-bar .content .opcao span:hover {
     color: #210d18;
-    background: #8b8bbd;
+    background: #44a176;
     transition: 0.5s ease;
 }
 .side-bar .content .opcao i {
     font-size: 30px;
-    color: #210d18;
+    color: #44a176;
 }
 .side-bar .logout {
     display: flex;
@@ -904,6 +931,7 @@ Cores - CyberPunk
 .side-bar .logout .opcao {
     display: flex;
     flex-direction: row;
+    align-items: center;
     cursor: pointer;
 }
 .side-bar .logout .opcao span{
@@ -915,12 +943,12 @@ Cores - CyberPunk
 }
 .side-bar .logout .opcao span:hover {
     color: #210d18;
-    background: #8b8bbd;
+    background: #44a176;
     transition: 0.5s ease;
 }
 .side-bar .logout .opcao i {
     font-size: 30px;
-    color: #210d18;
+    color: #44a176;
 }
 
 /* analytics */
@@ -945,10 +973,10 @@ Cores - CyberPunk
     align-items: center;
 }
 .analytics .container .subgenero h1 {
-    color: #fe849b;
+    color: rgb(96 20 91);
     font-size: 150px;
     font-family: 'torchzilla-regular.ttf';
-    -webkit-text-stroke-color: #28664a;
+    -webkit-text-stroke-color: #398f68;
     -webkit-text-stroke-width: 3px;
 }
 .analytics .container .subgenero h1:hover {
@@ -966,7 +994,7 @@ Cores - CyberPunk
 .subgenero {
     height: 100vh;
     background: 
-    linear-gradient(rgba(1, 1, 56, 0.897), rgba(1, 1, 56, 0.562)),
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
     url('wp.jpg');
 }
 .ecco-jams {
@@ -1432,6 +1460,22 @@ Cores - CyberPunk
     color: var(--font-color);
     cursor: pointer;
   } 
+  /* css do novo card de ranking 31/07/2024 */
+  .card {
+    width: 550px;
+    height: 700px;
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    background-image: linear-gradient(144deg,rgb(149 70 139),rgb(149 70 139), #44a176 50%,#6bffba);
+  }
+  
+  .card__content {
+    background: rgb(2, 2, 17);
+    border-radius: 17px;
+    width: 100%;
+    height: 100%;
+  }
 
 @media (max-width: 920px) {
     .modo {

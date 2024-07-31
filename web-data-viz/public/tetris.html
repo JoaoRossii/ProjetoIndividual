@@ -51,12 +51,16 @@
             <div class="tetris-top" id="TetrisDoJoao"></div>
             <div class="tetris-bottom">
                 <div class="rankingTetris">
-                    <div class="tituloRank">
-                        <h1>Melhores Pontuações</h1>
-                    </div>
-
-                    <div class="pontosJogadores" id="rankTetris">
-                        <div class="rankeados" >
+                    <!-- novo card de ranking 31/07/2024 -->
+                    <div class="card">
+                        <div class="card__content">
+                            <div class="tituloRank">
+                                <h1>Melhores Pontuações</h1>
+                            </div>
+                            <div class="organizar-rank" id="rankTetris">
+                                <div class="rankeados">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +105,7 @@
 
             for (i = 0; i < resposta.length; i++) {
                 let rankeado = resposta[i];
-                rankLabel.innerHTML += `<div class="rankeados" ><span>${i + 1}</span> <p>${rankeado.nome}</p> <span class="pontos"> ${rankeado.pontos} Pontos</span>`;
+                rankLabel.innerHTML += `<div class="rankeados" ><span class="indice">${i + 1}</span> <p>${rankeado.nome}</p> <span class="pontos"> ${rankeado.pontos} Pontos</span>`;
             }
         }
         // criação das rotas e das variaveis para envio dos pontos e aluno que jogou o tetris;
