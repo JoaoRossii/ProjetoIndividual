@@ -1432,6 +1432,25 @@ Cores - CyberPunk
     padding: 5px 10px;
     outline: none;
   }
+
+  .flip-card__form select {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color-sub);
+    padding: 5px 10px;
+    outline: none;
+  }
+
+  .flip-card__form option{
+    color: var(--font-color-sub);
+    opacity: 0.8;
+  }
   
   .flip-card__input::placeholder {
     color: var(--font-color-sub);
@@ -1461,7 +1480,7 @@ Cores - CyberPunk
     cursor: pointer;
   } 
   /* css do novo card de ranking 31/07/2024 */
-  .card {
+  .card-rank {
     width: 550px;
     height: 700px;
     border-radius: 20px;
